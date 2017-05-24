@@ -29,8 +29,14 @@ function HomeController($q, $state) {
 
     function signUp(signUpForm) {
         firebase.auth().createUserWithEmailAndPassword(signUpForm.email, signUpForm.password)
-        .then(function() {
-            $state.reload();
+        .then(function(user) {
+            user.updateProfile({
+                displayName: signUpForm.name
+            }).then(function() {
+                $state.reload();
+            }).catch(function(error) {
+                console.log(error);
+            });
         })
         .catch(function(error) {
             // TODO: display form errors to user

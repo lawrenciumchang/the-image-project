@@ -11,6 +11,8 @@
             <div class="panel-body">
                 <form name="signUpForm" ng-submit="vm.signUp(signUpForm)" ng-if="vm.signUpView">
                     <div class="form-group">
+                        <label class="form-label" for="signup-name">Name</label>
+                        <input class="form-input" type="text" id="signup-name" placeholder="Name" ng-model="signUpForm.name" required/>
                         <label class="form-label" for="signup-email">Email</label>
                         <input class="form-input" type="text" id="signup-email" placeholder="Email" ng-model="signUpForm.email" required/>
                         <label class="form-label" for="signup-password">Password</label>
@@ -20,10 +22,10 @@
                 </form>
                 <form name="logInForm" ng-submit="vm.logIn(logInForm)" ng-if="!vm.signUpView">
                     <div class="form-group">
-                        <label class="form-label" for="signup-email">Email</label>
-                        <input class="form-input" type="text" id="signup-email" placeholder="Email" ng-model="logInForm.email" required/>
-                        <label class="form-label" for="signup-password">Password</label>
-                        <input class="form-input" type="password" id="signup-password" placeholder="Password" ng-model="logInForm.password" required/>
+                        <label class="form-label" for="login-email">Email</label>
+                        <input class="form-input" type="text" id="login-email" placeholder="Email" ng-model="logInForm.email" required/>
+                        <label class="form-label" for="login-password">Password</label>
+                        <input class="form-input" type="password" id="login-password" placeholder="Password" ng-model="logInForm.password" required/>
                     </div>
                     <button type="submit" class="btn btn-primary" ng-disabled="logInForm.$invalid">Log In</button>
                 </form>
