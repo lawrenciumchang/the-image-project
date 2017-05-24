@@ -14,8 +14,17 @@
         <link href="css/spectre-icons.min.css" rel="stylesheet"/>
         <link href="css/main.css" rel="stylesheet"/>
     </head>
-    <body>
-        <h1 class="text-center" style="margin:200px 10px 0px 10px">Welcome to The Image Project</h1>
-        <h6 class="text-center" style="margin-top:10px">Coming Soon</h6>
+    <body ng-app="app.core">
+        <ui-view></ui-view>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.0/angular-resource.min.js"></script>
+
+        <!-- inject:js -->
+        <script src="/js/app.module.js"></script>
+        <script src="/js/app.routes.js"></script>
+        <script src="/js/home/home.controller.js"></script>
+        <!-- endinject -->
     </body>
 </html>
