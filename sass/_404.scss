@@ -1,0 +1,16 @@
+.not-found-template {
+    text-align: center;
+    .container {
+        color: $dark-blue;
+        margin-top: 210px;
+        h1 {
+            font-size: 160px;
+        }
+        a {
+            text-decoration: none;
+        }
+        .message {
+            margin-top: -14px;
+        }
+    }
+}
