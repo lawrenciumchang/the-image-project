@@ -17,6 +17,23 @@
     <body ng-app="app.core">
         <ui-view></ui-view>
 
+        <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase-storage.js"></script>
+        <script>
+            var config = {
+                apiKey: "AIzaSyDhHS36J6XEcg10SNmwBPokaCcmVAhlEyE",
+                authDomain: "the-image-project-3d41a.firebaseapp.com",
+                databaseURL: "https://the-image-project-3d41a.firebaseio.com",
+                projectId: "the-image-project-3d41a",
+                storageBucket: "the-image-project-3d41a.appspot.com",
+                messagingSenderId: "466481312452"
+            };
+            firebase.initializeApp(config);
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.0/angular-resource.min.js"></script>

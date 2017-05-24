@@ -3,6 +3,10 @@ body {
   font-family: 'Comfortaa', sans-serif;
   margin: 0px;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+  body p {
+    margin-bottom: 0px; }
+  body a {
+    cursor: pointer; }
 
 .font-light {
   font-weight: 300; }
@@ -12,6 +16,23 @@ body {
 
 .font-bold {
   font-weight: 700; }
+
+.home-template .welcome-container {
+  position: absolute;
+  top: 25%; }
+  .home-template .welcome-container .panel {
+    width: 360px;
+    display: inline-block; }
+    .home-template .welcome-container .panel .btn {
+      width: 100%; }
+
+.home-template .user-container {
+  position: absolute;
+  top: 10%; }
+
+.home-template .btn-logout {
+  display: block;
+  margin: 10px auto; }
 
 .not-found-template {
   text-align: center; }

@@ -1,0 +1,22 @@
+.home-template {
+    .welcome-container {
+        position: absolute;
+        top: 25%;
+        .panel {
+            width: 360px;
+            display: inline-block;
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+    .user-container {
+        position: absolute;
+        top: 10%;
+    }
+    
+    .btn-logout {
+        display: block;
+        margin: 10px auto;
+    }
+}
