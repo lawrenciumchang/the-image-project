@@ -37,6 +37,8 @@ body {
     display: inline-block; }
     .menu-template .menu-bar .panel .btn {
       width: 100%; }
+  .menu-template .menu-bar .menu-icon {
+    margin-right: 10px; }
 
 .home-template .card-container {
   margin-top: 100px;
