@@ -4,7 +4,7 @@ angular
     .controller('HomeController', HomeController);
 
 /* @ngInject */
-function HomeController($q, $scope, $firebaseAuth, $firebaseStorage) {
+function HomeController($q, $scope, $firebaseAuth) {
     var vm = this;
 
     var auth = $firebaseAuth();
