@@ -38,11 +38,15 @@ body {
     .menu-template .menu-bar .panel .btn {
       width: 100%; }
 
-.home-template .container {
+.home-template .card-container {
   margin-top: 100px;
   margin-bottom: 40px; }
-  .home-template .container .card {
+  .home-template .card-container .card {
     margin-bottom: 40px; }
+
+.home-template .comparison-slider {
+  margin: 0 auto;
+  width: 80%; }
 
 .home-template .comparison-slider .comparison-after img, .home-template .comparison-slider .comparison-before img {
   z-index: 0; }

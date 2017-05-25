@@ -1,10 +1,14 @@
 .home-template {
-    .container {
+    .card-container {
         margin-top: 100px;
         margin-bottom: 40px;
         .card {
             margin-bottom: 40px;
         }
+    }
+    .comparison-slider {
+        margin: 0 auto;
+        width: 80%;
     }
     .comparison-slider .comparison-after img, .comparison-slider .comparison-before img {
         z-index: 0;
