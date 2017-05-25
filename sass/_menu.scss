@@ -1,0 +1,26 @@
+.menu-template {
+    background-color: $gray;
+    padding: 16px 8px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 200;
+    .menu-bar {
+        h4 {
+            margin-bottom: 0px;
+        }
+        .btn-upload {
+            margin-right: 16px;
+            span {
+                line-height: 2.2rem;
+            }
+        }
+        .panel {
+            width: 360px;
+            display: inline-block;
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}

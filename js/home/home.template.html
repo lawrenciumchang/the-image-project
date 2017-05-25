@@ -1,43 +1,5 @@
 <div class="home-template">
-    <div class="container welcome-container text-center" ng-if="!vm.user">
-        <h1 class="title">Welcome to The Image Project</h1>
-        <div class="panel">
-            <div class="panel-header">
-                <div class="panel-title">
-                    <span ng-if="vm.signUpView">Get Started</span>
-                    <span ng-if="!vm.signUpView">Welcome Back</span>
-                </div>
-            </div>
-            <div class="panel-body">
-                <form name="signUpForm" ng-submit="vm.signUp(signUpForm)" ng-if="vm.signUpView">
-                    <div class="form-group">
-                        <label class="form-label" for="signup-name">Name</label>
-                        <input class="form-input" type="text" id="signup-name" placeholder="Name" ng-model="signUpForm.name" required/>
-                        <label class="form-label" for="signup-email">Email</label>
-                        <input class="form-input" type="text" id="signup-email" placeholder="Email" ng-model="signUpForm.email" required/>
-                        <label class="form-label" for="signup-password">Password</label>
-                        <input class="form-input" type="password" id="signup-password" placeholder="Password" ng-model="signUpForm.password" required/>
-                    </div>
-                    <button type="submit" class="btn btn-primary" ng-disabled="signUpForm.$invalid">Sign Up</button>
-                </form>
-                <form name="logInForm" ng-submit="vm.logIn(logInForm)" ng-if="!vm.signUpView">
-                    <div class="form-group">
-                        <label class="form-label" for="login-email">Email</label>
-                        <input class="form-input" type="text" id="login-email" placeholder="Email" ng-model="logInForm.email" required/>
-                        <label class="form-label" for="login-password">Password</label>
-                        <input class="form-input" type="password" id="login-password" placeholder="Password" ng-model="logInForm.password" required/>
-                    </div>
-                    <button type="submit" class="btn btn-primary" ng-disabled="logInForm.$invalid">Log In</button>
-                </form>
-            </div>
-            <div class="panel-footer">
-                <p ng-if="vm.signUpView">Already have an account? <a ng-click="vm.toggleForm()">Log In</a>.</p>
-                <p ng-if="!vm.signUpView">Don't have an account? <a ng-click="vm.toggleForm()">Sign Up</a>.</p>
-            </div>
-        </div>
-    </div>
-    <div class="container user-container" ng-if="vm.user">
-        <h1 class="title text-center">Welcome back.</h1>
-        <button ng-if="vm.user" class="btn btn-primary btn-logout" ng-click="vm.logOut()">Log Out</button>
+    <div class="container welcome-container text-center">
+        <h1 class="title">This is the home page.</h1>
     </div>
 </div>

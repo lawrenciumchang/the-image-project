@@ -7,6 +7,8 @@ body {
     margin-bottom: 0px; }
   body a {
     cursor: pointer; }
+    body a:hover {
+      text-decoration: none; }
 
 .font-light {
   font-weight: 300; }
@@ -17,22 +19,28 @@ body {
 .font-bold {
   font-weight: 700; }
 
+.menu-template {
+  background-color: #f8f9fa;
+  padding: 16px 8px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 200; }
+  .menu-template .menu-bar h4 {
+    margin-bottom: 0px; }
+  .menu-template .menu-bar .btn-upload {
+    margin-right: 16px; }
+    .menu-template .menu-bar .btn-upload span {
+      line-height: 2.2rem; }
+  .menu-template .menu-bar .panel {
+    width: 360px;
+    display: inline-block; }
+    .menu-template .menu-bar .panel .btn {
+      width: 100%; }
+
 .home-template .welcome-container {
   position: absolute;
   top: 25%; }
-  .home-template .welcome-container .panel {
-    width: 360px;
-    display: inline-block; }
-    .home-template .welcome-container .panel .btn {
-      width: 100%; }
-
-.home-template .user-container {
-  position: absolute;
-  top: 10%; }
-
-.home-template .btn-logout {
-  display: block;
-  margin: 10px auto; }
 
 .not-found-template {
   text-align: center; }
