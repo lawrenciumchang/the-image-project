@@ -3,6 +3,9 @@ body {
   font-family: 'Comfortaa', sans-serif;
   margin: 0px;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+  body .view {
+    margin-top: 100px;
+    margin-bottom: 40px; }
   body p {
     margin-bottom: 0px; }
   body a {
@@ -26,8 +29,9 @@ body {
   top: 0;
   width: 100%;
   z-index: 200; }
-  .menu-template .menu-bar h4 {
-    margin-bottom: 0px; }
+  .menu-template .menu-bar .title {
+    margin-bottom: 0px;
+    cursor: pointer; }
   .menu-template .menu-bar .btn-upload {
     margin-right: 16px; }
     .menu-template .menu-bar .btn-upload span {
@@ -40,11 +44,8 @@ body {
   .menu-template .menu-bar .menu-icon {
     margin-right: 10px; }
 
-.home-template .card-container {
-  margin-top: 100px;
+.home-template .card {
   margin-bottom: 40px; }
-  .home-template .card-container .card {
-    margin-bottom: 40px; }
 
 .home-template .comparison-slider {
   margin: 0 auto;

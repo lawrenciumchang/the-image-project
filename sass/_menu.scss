@@ -6,8 +6,9 @@
     width: 100%;
     z-index: 200;
     .menu-bar {
-        h4 {
+        .title {
             margin-bottom: 0px;
+            cursor: pointer;
         }
         .btn-upload {
             margin-right: 16px;
