@@ -4,11 +4,11 @@
             <div class="card-image">
                 <div class="comparison-slider">
                     <figure class="comparison-before">
-                        <img firebase-src="{{image[0].fullPath}}"/>
+                        <img firebase-src="{{'images/'+image.before}}"/>
                         <div class="comparison-label">Before</div>
                     </figure>
                     <figure class="comparison-after">
-                        <img firebase-src="{{image[1].fullPath}}"/>
+                        <img firebase-src="{{'images/'+image.after}}"/>
                         <div class="comparison-label">After</div>
                         <textarea class="comparison-resizer" readonly cols="0" rows="0"></textarea>
                     </figure>

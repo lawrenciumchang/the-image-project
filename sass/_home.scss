@@ -1,5 +1,12 @@
 .home-template {
     .container {
         margin-top: 100px;
+        margin-bottom: 60px;
+    }
+    .comparison-slider .comparison-after img, .comparison-slider .comparison-before img {
+        z-index: 0;
+    }
+    .comparison-slider .comparison-after::after {
+        z-index: 1;
     }
 }
