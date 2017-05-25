@@ -4,7 +4,7 @@ angular
     .controller('MenuController', MenuController);
 
 /* @ngInject */
-function MenuController($q, $state) {
+function MenuController($q, $firebaseAuth) {
     var vm = this;
     vm.toggleForm = toggleForm;
     vm.signUp = signUp;
@@ -13,6 +13,8 @@ function MenuController($q, $state) {
 
     vm.user = {};
     vm.signUpView = true;
+
+    var auth = $firebaseAuth();
 
     activate();
 
@@ -29,12 +31,12 @@ function MenuController($q, $state) {
     }
 
     function signUp(signUpForm) {
-        firebase.auth().createUserWithEmailAndPassword(signUpForm.email, signUpForm.password)
+        auth.$createUserWithEmailAndPassword(signUpForm.email, signUpForm.password)
             .then(function(user) {
                 user.updateProfile({
                     displayName: signUpForm.name
                 }).then(function() {
-                    $state.reload();
+
                 }).catch(function(error) {
                     console.log(error.code, error.message);
                 });
@@ -46,9 +48,9 @@ function MenuController($q, $state) {
     }
 
     function logIn(logInForm) {
-        firebase.auth().signInWithEmailAndPassword(logInForm.email, logInForm.password)
+        auth.$signInWithEmailAndPassword(logInForm.email, logInForm.password)
             .then(function() {
-                $state.reload();
+
             })
             .catch(function(error) {
                 // TODO: display form errors to user
@@ -57,24 +59,17 @@ function MenuController($q, $state) {
     }
 
     function logOut() {
-        firebase.auth().signOut()
+        auth.$signOut()
             .then(function() {
-                $state.reload();
+
             })
             .catch(function(error) {
                 console.log(error.code, error.message);
             });
     }
 
-    firebase.auth().onAuthStateChanged(function(user) {
+    auth.$onAuthStateChanged(function(user) {
         vm.user = user;
-        // For testing -- to remove later.
-        if (vm.user) {
-            console.log('From Menu: User ' + vm.user.email + ' is signed in.');
-        } 
-        else {
-            console.log('From Menu: User is signed out.');
-        }
     });
 
 }

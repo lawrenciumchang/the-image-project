@@ -15,8 +15,8 @@
                         <div class="panel text-center">
                             <div class="panel-header">
                                 <div class="panel-title">
-                                    <span ng-if="vm.signUpView">Get Started</span>
-                                    <span ng-if="!vm.signUpView">Welcome Back</span>
+                                    <span ng-if="vm.signUpView">Create an Account</span>
+                                    <span ng-if="!vm.signUpView">Welcome Back!</span>
                                 </div>
                             </div>
                             <div class="panel-body">
@@ -48,9 +48,19 @@
                         </div>
                     </ul>
                     <ul class="menu" ng-if="vm.user">
-                      <li class="menu-item">
-                        <a href="#" ng-click="vm.logOut()">Logout</a>
-                      </li>
+                        <li class="menu-item">
+                            <a>My Images</a>
+                        </li>
+                        <li class="menu-item show-sm">
+                            <a>Upload</a>
+                        </li>
+                        <li class="menu-item">
+                            <a>Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="menu-item">
+                            <a ng-click="vm.logOut()">Logout</a>
+                        </li>
                     </ul>
                 </div>
             </section>
