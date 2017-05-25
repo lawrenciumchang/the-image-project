@@ -40,7 +40,9 @@ body {
 
 .home-template .container {
   margin-top: 100px;
-  margin-bottom: 60px; }
+  margin-bottom: 40px; }
+  .home-template .container .card {
+    margin-bottom: 40px; }
 
 .home-template .comparison-slider .comparison-after img, .home-template .comparison-slider .comparison-before img {
   z-index: 0; }
