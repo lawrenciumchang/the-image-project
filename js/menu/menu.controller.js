@@ -4,7 +4,7 @@ angular
     .controller('MenuController', MenuController);
 
 /* @ngInject */
-function MenuController($q, $firebaseAuth) {
+function MenuController($q, $state, $firebaseAuth) {
     var vm = this;
     vm.toggleForm = toggleForm;
     vm.signUp = signUp;
@@ -61,7 +61,7 @@ function MenuController($q, $firebaseAuth) {
     function logOut() {
         auth.$signOut()
             .then(function() {
-
+                $state.go('home');
             })
             .catch(function(error) {
                 console.log(error.code, error.message);
