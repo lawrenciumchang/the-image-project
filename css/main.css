@@ -38,9 +38,8 @@ body {
     .menu-template .menu-bar .panel .btn {
       width: 100%; }
 
-.home-template .welcome-container {
-  position: absolute;
-  top: 25%; }
+.home-template .container {
+  margin-top: 100px; }
 
 .not-found-template {
   text-align: center; }

@@ -1,5 +1,16 @@
 <div class="home-template">
-    <div class="container welcome-container text-center">
-        <h1 class="title">This is the home page.</h1>
+    <div class="container grid-960">
+        <div class="card" ng-repeat="image in vm.images">
+            <div class="card-image">
+                <img firebase-src="{{image.fullPath}}" class="img-responsive" style="margin:0 auto;"/>
+            </div>
+            <div class="card-header">
+                <h4 class="card-title">{{image.name}}</h4>
+                <h6 class="card-subtitle">Username goes here</h6>
+            </div>
+            <div class="card-body">
+                <p>Description text: Empower every person and every organization on the planet to achieve more.</p>
+            </div>
+        </div>
     </div>
 </div>
