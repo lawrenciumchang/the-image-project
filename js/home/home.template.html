@@ -1,17 +1,10 @@
 <div class="home-template">
     <div class="container grid-960">
-        <div class="card" ng-repeat="image in vm.images">
+        <div class="card" ng-repeat="image in vm.images track by $index">
             <div class="card-image">
-                <div class="comparison-slider">
-                    <figure class="comparison-before">
-                        <img firebase-src="{{'images/'+image.before}}"/>
-                        <div class="comparison-label">Before</div>
-                    </figure>
-                    <figure class="comparison-after">
-                        <img firebase-src="{{'images/'+image.after}}"/>
-                        <div class="comparison-label">After</div>
-                        <textarea class="comparison-resizer" readonly cols="0" rows="0"></textarea>
-                    </figure>
+                <div twentytwenty class="twentytwenty-container">
+                    <img firebase-src="{{'images/'+image.before}}"/>
+                    <img firebase-src="{{'images/'+image.after}}"/>
                 </div>
             </div>
             <div class="card-header">
