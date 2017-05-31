@@ -1,5 +1,23 @@
 <div class="user-images-template">
     <div class="container grid-960">
-        <h5>My Images</h5>
+        <h5 class="section-title"><i class="icon icon-photo"></i> My Images</h5>
+        <div class="card" ng-repeat="image in vm.userImages track by $index">
+            <div class="card-image columns">
+                <div class="column col-left col-sm-12 col-md-6">
+                    <img firebase-src="{{'images/'+image.before}}"/>
+                </div>
+                <div class="column col-right col-sm-12 col-md-6">
+                    <img firebase-src="{{'images/'+image.after}}"/>
+                </div>
+            </div>
+            <div class="card-header">
+                <button class="btn btn-primary float-right"><i class="icon icon-delete"></i></button>
+                <button class="btn btn-primary float-right btn-edit"><i class="icon icon-edit"></i></button>
+                <h4 class="card-title">{{image.title}}</h4>
+            </div>
+            <div class="card-body">
+                <p>{{image.description}}</p>
+            </div>
+        </div>
     </div>
 </div>

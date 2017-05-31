@@ -15,4 +15,13 @@ body {
             text-decoration: none;
         }
     }
+    .section-title {
+        .icon {
+            margin-top: -5px;
+            margin-right: 3px;
+        }
+        @media (max-width: 478px) {
+            padding-top: 8px;
+        }
+    }
 }
