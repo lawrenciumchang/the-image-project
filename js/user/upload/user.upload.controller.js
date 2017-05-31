@@ -4,7 +4,7 @@ app
     .controller('UserUploadController', UserUploadController);
 
 /* @ngInject */
-function UserUploadController($q, $scope, $state, $firebaseAuth, Upload) {
+function UserUploadController($q, $scope, $state, $firebaseAuth, Upload, $timeout) {
     var vm = this;
     vm.submit = submit;
 
@@ -54,7 +54,7 @@ function UserUploadController($q, $scope, $state, $firebaseAuth, Upload) {
         var S4 = function() {
             return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
         };
-        return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+        return (S4()+S4()+'-'+S4()+'-'+S4()+'-'+S4()+'-'+S4()+S4()+S4());
     }
 
     function uploadImage(key, image) {
@@ -70,6 +70,7 @@ function UserUploadController($q, $scope, $state, $firebaseAuth, Upload) {
     }
 
     function submit() {
+        $('.btn-submit').addClass('loading');
         var promises = [uploadImage('before', vm.upload.before.image), uploadImage('after', vm.upload.after.image)];
         return $q.all(promises).then(function() {
             firebase.database().ref('images').push({
@@ -80,7 +81,10 @@ function UserUploadController($q, $scope, $state, $firebaseAuth, Upload) {
                 username: vm.user.displayName,
                 uid: vm.user.uid
             });
-            $state.go('user.images');
+            $timeout(function() {
+                $('.btn-submit').removeClass('loading');
+                $state.go('user.images');
+            }, 2000);
         });
     }
 
