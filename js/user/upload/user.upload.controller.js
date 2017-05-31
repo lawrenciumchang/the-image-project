@@ -72,8 +72,14 @@ function UserUploadController($q, $scope, $state, $firebaseAuth, Upload) {
     function submit() {
         var promises = [uploadImage('before', vm.upload.before.image), uploadImage('after', vm.upload.after.image)];
         return $q.all(promises).then(function() {
-            // Populate database
-
+            firebase.database().ref('images').push({
+                after: vm.upload.after.filename,
+                before: vm.upload.before.filename,
+                description: vm.upload.description,
+                title: vm.upload.title,
+                username: vm.user.displayName,
+                uid: vm.user.uid
+            });
             $state.go('user.images');
         });
     }
