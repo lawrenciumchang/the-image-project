@@ -2,6 +2,17 @@
 
 app
     .config(Routes)
+    .run(function($rootScope, $state, $firebaseAuth) {
+        $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
+            var auth = $firebaseAuth();
+            auth.$onAuthStateChanged(function(user) {
+                if(!user) {
+                    e.preventDefault();
+                    $state.go('home');
+                }
+            });
+        });
+    })
     .config(['$locationProvider', function($locationProvider) {
         $locationProvider.html5Mode({
             enabled: false,
