@@ -16,9 +16,7 @@
     </head>
     <body>
         <div ng-include="'/js/menu/menu.template.html'"></div>
-        <div class="view">
-            <ui-view></ui-view>
-        </div>
+        <div class="view"><ui-view></ui-view></div>
 
         <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase-auth.js"></script>
@@ -58,4 +56,10 @@
         <script src="/js/user/upload/user.upload.controller.js"></script>
         <!-- endinject -->
     </body>
+    <footer class="footer">
+        <div class="grid-footer container grid-960 text-right">
+            <a href="https://www.lawrenciumchang.com">Visit the main site.</a>
+            <p>All images are copyright to their respective owners.</p>
+        </div>
+    </footer>
 </html>
