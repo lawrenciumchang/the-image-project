@@ -81,6 +81,9 @@ body {
 .user-upload-template .dragover {
   border: 4px dashed #5867c3; }
 
+.user-upload-template .form-group {
+  margin-bottom: 0px; }
+
 .not-found-template {
   text-align: center; }
   .not-found-template .container {
