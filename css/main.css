@@ -118,10 +118,13 @@ body {
 .footer {
   background-color: #f8f9fa;
   width: 100%;
-  height: 84px;
+  height: 116px;
   padding: 1rem; }
   .footer .grid-footer {
     margin-top: 1rem; }
+    @media (max-width: 600px) {
+      .footer .grid-footer {
+        text-align: center; } }
   .footer p, .footer a {
     font-size: 11px; }
 

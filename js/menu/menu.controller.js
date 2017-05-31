@@ -7,6 +7,7 @@ app
 function MenuController($q, $state, $firebaseAuth) {
     var vm = this;
     vm.toggleForm = toggleForm;
+    vm.removeFocus = removeFocus;
     vm.signUp = signUp;
     vm.logIn = logIn;
     vm.logOut = logOut;
@@ -28,6 +29,10 @@ function MenuController($q, $state, $firebaseAuth) {
     function toggleForm() {
         vm.signUpView = !vm.signUpView;
         document.getElementById('dropdown').focus();
+    }
+
+    function removeFocus() {
+        document.getElementById('dropdown').blur();
     }
 
     function signUp(signUpForm) {

@@ -49,17 +49,17 @@
                     </ul>
                     <ul class="menu" ng-if="vm.user">
                         <li class="menu-item">
-                            <a ui-sref="user.images"><i class="icon icon-photo menu-icon"></i>My Images</a>
+                            <a ui-sref="user.images" ng-click="vm.removeFocus()"><i class="icon icon-photo menu-icon"></i>My Images</a>
                         </li>
                         <li class="menu-item show-sm">
-                            <a ui-sref="user.upload"><i class="icon icon-upload menu-icon"></i>Upload</a>
+                            <a ui-sref="user.upload" ng-click="vm.removeFocus()"><i class="icon icon-upload menu-icon"></i>Upload</a>
                         </li>
                         <li class="menu-item">
-                            <a ui-sref="user.profile"><i class="icon icon-people menu-icon"></i>Profile</a>
+                            <a ui-sref="user.profile" ng-click="vm.removeFocus()"><i class="icon icon-people menu-icon"></i>Profile</a>
                         </li>
                         <li class="divider"></li>
                         <li class="menu-item">
-                            <a ng-click="vm.logOut()"><i class="icon icon-shutdown menu-icon"></i>Logout</a>
+                            <a ng-click="vm.logOut()" ng-click="vm.removeFocus()"><i class="icon icon-shutdown menu-icon"></i>Logout</a>
                         </li>
                     </ul>
                 </div>
