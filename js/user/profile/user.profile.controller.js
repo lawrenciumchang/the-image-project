@@ -1,11 +1,13 @@
 'use strict';
 
 app
-    .controller('UserSettingsController', UserSettingsController);
+    .controller('UserProfileController', UserProfileController);
 
 /* @ngInject */
-function UserSettingsController($q, $firebaseAuth) {
+function UserProfileController($q, $firebaseAuth) {
     var vm = this;
+
+    vm.editMode = false;
 
     var auth = $firebaseAuth();
 

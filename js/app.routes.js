@@ -35,10 +35,10 @@ function Routes($stateProvider, $urlRouterProvider) {
             controller: 'UserUploadController',
             controllerAs: 'vm'
         })
-        .state('user.settings', {
-            url: '/settings',
-            templateUrl: 'js/user/settings/user.settings.template.html',
-            controller: 'UserSettingsController',
+        .state('user.profile', {
+            url: '/profile',
+            templateUrl: 'js/user/profile/user.profile.template.html',
+            controller: 'UserProfileController',
             controllerAs: 'vm'
         });
 };

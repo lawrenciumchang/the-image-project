@@ -112,6 +112,9 @@ body {
 .user-upload-template .form-group {
   margin-bottom: 0px; }
 
+.user-profile-template h6 {
+  margin-top: 6px; }
+
 .not-found-template {
   text-align: center; }
   .not-found-template .container {
