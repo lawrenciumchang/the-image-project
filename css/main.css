@@ -18,6 +18,8 @@ body {
   @media (max-width: 478px) {
     body .section-title {
       padding-top: 8px; } }
+  body .btn span {
+    line-height: 2.2rem; }
 
 .font-light {
   font-weight: 300; }
@@ -40,8 +42,6 @@ body {
     cursor: pointer; }
   .menu-template .menu-bar .btn-upload {
     margin-right: 16px; }
-    .menu-template .menu-bar .btn-upload span {
-      line-height: 2.2rem; }
   .menu-template .menu-bar .panel {
     width: 360px;
     display: inline-block; }
