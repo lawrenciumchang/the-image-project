@@ -1,6 +1,6 @@
 'use strict';
 
-angular
+app
     .config(Routes)
     .config(['$locationProvider', function($locationProvider) {
         $locationProvider.html5Mode({

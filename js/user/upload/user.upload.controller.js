@@ -1,6 +1,6 @@
 'use strict';
 
-angular
+app
     .controller('UserUploadController', UserUploadController);
 
 /* @ngInject */
@@ -14,7 +14,7 @@ function UserUploadController($q, $firebaseAuth) {
     function activate() {
         var promises = [];
         return $q.all(promises).then(function() {
-
+            
         });
     }
 

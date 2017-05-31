@@ -1,4 +1,6 @@
-angular.directive('twentytwenty', function() {
+'use strict';
+
+app.directive('twentytwenty', function() {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {

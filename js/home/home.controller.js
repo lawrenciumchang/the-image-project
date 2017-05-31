@@ -1,6 +1,6 @@
 'use strict';
 
-angular
+app
     .controller('HomeController', HomeController);
 
 /* @ngInject */
