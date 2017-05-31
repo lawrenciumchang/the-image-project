@@ -5,7 +5,7 @@ body {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
   body .view {
     margin-top: 100px;
-    min-height: 90vh; }
+    min-height: 100vh; }
   body p {
     margin-bottom: 0px; }
   body a {
