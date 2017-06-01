@@ -35,6 +35,7 @@ function MenuController($q, $state, $firebaseAuth) {
     }
 
     function signUp(signUpForm) {
+        $('.btn-signup').addClass('loading');
         vm.invalidSignupEmail = false;
         vm.weakPassword = false;
         $('#signup-email').removeClass('is-error');
@@ -44,7 +45,7 @@ function MenuController($q, $state, $firebaseAuth) {
                 user.updateProfile({
                     displayName: signUpForm.name
                 }).then(function() {
-
+                    $state.reload();
                 }).catch(function(error) {
                     console.log(error.code, error.message);
                 });
@@ -61,10 +62,14 @@ function MenuController($q, $state, $firebaseAuth) {
                         break;
                     default: break;
                 }
-            });
+            })
+            .finally(function() {
+                $('.btn-signup').removeClass('loading');
+            }); 
     }
 
     function logIn(logInForm) {
+        $('.btn-login').addClass('loading');
         vm.invalidLoginEmail = false;
         vm.invalidCombination = false;
         $('#login-email').removeClass('is-error');
@@ -91,7 +96,10 @@ function MenuController($q, $state, $firebaseAuth) {
                         break;
                     default: break;
                 }
-            });
+            })
+            .finally(function() {
+                $('.btn-login').removeClass('loading');
+            }); 
     }
 
     function logOut() {
