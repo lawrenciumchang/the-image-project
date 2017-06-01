@@ -16,8 +16,12 @@
         .panel {
             width: 360px;
             display: inline-block;
+            .panel-header {
+                padding-bottom: 5px;
+            }
             .btn {
                 width: 100%;
+                margin-top: 10px;
             }
         }
         .menu-icon {

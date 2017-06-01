@@ -12,9 +12,9 @@
                         <span ng-if="!vm.user">Get Started</span> <i class="icon icon-caret"></i>
                     </a>
                     <ul class="menu" ng-if="!vm.user">
-                        <div class="panel text-center">
+                        <div class="panel">
                             <div class="panel-header">
-                                <div class="panel-title">
+                                <div class="panel-title text-center">
                                     <span ng-if="vm.signUpView">Create an Account</span>
                                     <span ng-if="!vm.signUpView">Welcome Back!</span>
                                 </div>
@@ -23,25 +23,31 @@
                                 <form name="signUpForm" ng-submit="vm.signUp(signUpForm)" ng-if="vm.signUpView">
                                     <div class="form-group">
                                         <label class="form-label" for="signup-name">Name</label>
-                                        <input class="form-input" type="text" id="signup-name" placeholder="Name" ng-model="signUpForm.name" required/>
-                                        <label class="form-label" for="signup-email">Email</label>
-                                        <input class="form-input" type="text" id="signup-email" placeholder="Email" ng-model="signUpForm.email" required/>
-                                        <label class="form-label" for="signup-password">Password</label>
-                                        <input class="form-input" type="password" id="signup-password" placeholder="Password" ng-model="signUpForm.password" required/>
+                                        <input class="form-input" type="text" id="signup-name" placeholder=" " ng-model="signUpForm.name" required/>
                                     </div>
-                                    <button type="submit" class="btn btn-primary" ng-disabled="signUpForm.$invalid">Sign Up</button>
+                                    <div class="form-group">
+                                        <label class="form-label" for="signup-email">Email</label>
+                                        <input class="form-input" type="text" id="signup-email" placeholder=" " ng-model="signUpForm.email" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="signup-password">Password</label>
+                                        <input class="form-input" type="password" id="signup-password" placeholder=" " ng-model="signUpForm.password" required/>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Sign Up</button>
                                 </form>
                                 <form name="logInForm" ng-submit="vm.logIn(logInForm)" ng-if="!vm.signUpView">
                                     <div class="form-group">
                                         <label class="form-label" for="login-email">Email</label>
-                                        <input class="form-input" type="text" id="login-email" placeholder="Email" ng-model="logInForm.email" required/>
-                                        <label class="form-label" for="login-password">Password</label>
-                                        <input class="form-input" type="password" id="login-password" placeholder="Password" ng-model="logInForm.password" required/>
+                                        <input class="form-input" type="text" id="login-email" placeholder=" " ng-model="logInForm.email" required/>
                                     </div>
-                                    <button type="submit" class="btn btn-primary" ng-disabled="logInForm.$invalid">Log In</button>
+                                    <div class="form-group">
+                                        <label class="form-label" for="login-password">Password</label>
+                                        <input class="form-input" type="password" id="login-password" placeholder=" " ng-model="logInForm.password" required/>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Log In</button>
                                 </form>
                             </div>
-                            <div class="panel-footer">
+                            <div class="panel-footer text-center">
                                 <p ng-if="vm.signUpView">Already have an account? <a ng-click="vm.toggleForm()">Log In</a>.</p>
                                 <p ng-if="!vm.signUpView">Don't have an account? <a ng-click="vm.toggleForm()">Sign Up</a>.</p>
                             </div>
@@ -49,17 +55,17 @@
                     </ul>
                     <ul class="menu" ng-if="vm.user">
                         <li class="menu-item">
-                            <a ui-sref="user.images" ng-click="vm.removeFocus()"><i class="icon icon-photo menu-icon"></i>My Images</a>
+                            <a ui-sref="user.images"><i class="icon icon-photo menu-icon"></i>My Images</a>
                         </li>
                         <li class="menu-item show-sm">
-                            <a ui-sref="user.upload" ng-click="vm.removeFocus()"><i class="icon icon-upload menu-icon"></i>Upload</a>
+                            <a ui-sref="user.upload"><i class="icon icon-upload menu-icon"></i>Upload</a>
                         </li>
                         <li class="menu-item">
-                            <a ui-sref="user.profile" ng-click="vm.removeFocus()"><i class="icon icon-people menu-icon"></i>Profile</a>
+                            <a ui-sref="user.profile"><i class="icon icon-people menu-icon"></i>Profile</a>
                         </li>
                         <li class="divider"></li>
                         <li class="menu-item">
-                            <a ng-click="vm.logOut()" ng-click="vm.removeFocus()"><i class="icon icon-shutdown menu-icon"></i>Logout</a>
+                            <a ng-click="vm.logOut()"><i class="icon icon-shutdown menu-icon"></i>Logout</a>
                         </li>
                     </ul>
                 </div>

@@ -45,8 +45,11 @@ body {
   .menu-template .menu-bar .panel {
     width: 360px;
     display: inline-block; }
+    .menu-template .menu-bar .panel .panel-header {
+      padding-bottom: 5px; }
     .menu-template .menu-bar .panel .btn {
-      width: 100%; }
+      width: 100%;
+      margin-top: 10px; }
   .menu-template .menu-bar .menu-icon {
     margin-right: 10px; }
 
