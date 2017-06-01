@@ -13,6 +13,10 @@ function MenuController($q, $state, $firebaseAuth) {
 
     vm.user = {};
     vm.signUpView = true;
+    vm.invalidSignupEmail = false;
+    vm.weakPassword = false;
+    vm.invalidLoginEmail = false;
+    vm.invalidCombination = false;
 
     var auth = $firebaseAuth();
 
@@ -31,6 +35,10 @@ function MenuController($q, $state, $firebaseAuth) {
     }
 
     function signUp(signUpForm) {
+        vm.invalidSignupEmail = false;
+        vm.weakPassword = false;
+        $('#signup-email').removeClass('is-error');
+        $('#signup-password').removeClass('is-error');
         auth.$createUserWithEmailAndPassword(signUpForm.email, signUpForm.password)
             .then(function(user) {
                 user.updateProfile({
@@ -42,19 +50,47 @@ function MenuController($q, $state, $firebaseAuth) {
                 });
             })
             .catch(function(error) {
-                // TODO: display form errors to user
-                console.log(error.code, error.message);
+                switch(error.code) {
+                    case 'auth/invalid-email': 
+                        $('#signup-email').addClass('is-error');
+                        vm.invalidSignupEmail = true;
+                        break;
+                    case 'auth/weak-password':  
+                        $('#signup-password').addClass('is-error');
+                        vm.weakPassword = true;
+                        break;
+                    default: break;
+                }
             });
     }
 
     function logIn(logInForm) {
+        vm.invalidLoginEmail = false;
+        vm.invalidCombination = false;
+        $('#login-email').removeClass('is-error');
+        $('#login-password').removeClass('is-error');
         auth.$signInWithEmailAndPassword(logInForm.email, logInForm.password)
             .then(function() {
 
             })
             .catch(function(error) {
-                // TODO: display form errors to user
-                console.log(error.code, error.message);
+                switch(error.code) {
+                    case 'auth/invalid-email': 
+                        $('#login-email').addClass('is-error');
+                        vm.invalidLoginEmail = true;
+                        break;
+                    case 'auth/user-not-found':  
+                        $('#login-email').addClass('is-error');
+                        $('#login-password').addClass('is-error');
+                        vm.invalidCombination = true;
+                        break;
+                    case 'auth/wrong-password':
+                        $('#login-email').addClass('is-error');
+                        $('#login-password').addClass('is-error');
+                        vm.invalidCombination = true;
+                        break;
+                    default: break;
+                }
             });
     }
 

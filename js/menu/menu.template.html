@@ -28,10 +28,12 @@
                                     <div class="form-group">
                                         <label class="form-label" for="signup-email">Email</label>
                                         <input class="form-input" type="text" id="signup-email" placeholder=" " ng-model="signUpForm.email" required/>
+                                        <p class="form-input-hint" ng-if="vm.invalidSignupEmail">Please enter a valid email.</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="signup-password">Password</label>
                                         <input class="form-input" type="password" id="signup-password" placeholder=" " ng-model="signUpForm.password" required/>
+                                        <p class="form-input-hint" ng-if="vm.weakPassword">Password should be at least 6 characters.</p>
                                     </div>
                                     <button type="submit" class="btn btn-primary"><span>Sign Up</span></button>
                                 </form>
@@ -39,10 +41,12 @@
                                     <div class="form-group">
                                         <label class="form-label" for="login-email">Email</label>
                                         <input class="form-input" type="text" id="login-email" placeholder=" " ng-model="logInForm.email" required/>
+                                        <p class="form-input-hint" ng-if="vm.invalidLoginEmail">Please enter a valid email.</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="login-password">Password</label>
                                         <input class="form-input" type="password" id="login-password" placeholder=" " ng-model="logInForm.password" required/>
+                                        <p class="form-input-hint" ng-if="vm.invalidCombination">Email or password is incorrect.</p>
                                     </div>
                                     <button type="submit" class="btn btn-primary"><span>Log In</span></button>
                                 </form>
