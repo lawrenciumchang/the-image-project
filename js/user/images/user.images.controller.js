@@ -7,6 +7,7 @@ app
 function UserImagesController($q, $scope, $firebaseAuth) {
     var vm = this;
 
+    vm.reverseSort = true;
     vm.userImages = [];
 
     var auth = $firebaseAuth();

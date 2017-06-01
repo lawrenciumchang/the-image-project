@@ -7,6 +7,9 @@ app
 function HomeController($q, $scope, $firebaseAuth) {
     var vm = this;
 
+    vm.reverseSort = true;
+    vm.images = [];
+
     var auth = $firebaseAuth();
 
     activate();
@@ -20,7 +23,9 @@ function HomeController($q, $scope, $firebaseAuth) {
 
     function getImages() {
         firebase.database().ref('/images').once('value').then(function(images) {
-            vm.images = images.val();
+            angular.forEach(images.val(), function(image){
+                vm.images.push(image);
+            });
             $scope.$apply();
         });
     }

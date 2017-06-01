@@ -1,7 +1,7 @@
 <div class="user-images-template">
     <div class="container grid-960">
         <h5 class="section-title"><i class="icon icon-photo"></i> My Images</h5>
-        <div class="card" ng-repeat="image in vm.userImages track by $index">
+        <div class="card" ng-repeat="image in vm.userImages | orderBy : 'uploadTime' : vm.reverseSort">
             <div class="card-image columns">
                 <div class="column col-left col-sm-12 col-md-6">
                     <img firebase-src="{{'images/'+image.before}}"/>
