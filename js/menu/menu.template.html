@@ -33,7 +33,7 @@
                                         <label class="form-label" for="signup-password">Password</label>
                                         <input class="form-input" type="password" id="signup-password" placeholder=" " ng-model="signUpForm.password" required/>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                                    <button type="submit" class="btn btn-primary"><span>Sign Up</span></button>
                                 </form>
                                 <form name="logInForm" ng-submit="vm.logIn(logInForm)" ng-if="!vm.signUpView">
                                     <div class="form-group">
@@ -44,7 +44,7 @@
                                         <label class="form-label" for="login-password">Password</label>
                                         <input class="form-input" type="password" id="login-password" placeholder=" " ng-model="logInForm.password" required/>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Log In</button>
+                                    <button type="submit" class="btn btn-primary"><span>Log In</span></button>
                                 </form>
                             </div>
                             <div class="panel-footer text-center">
