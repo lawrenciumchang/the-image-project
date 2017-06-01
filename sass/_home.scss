@@ -1,6 +1,14 @@
 .home-template {
     .card {
         margin-bottom: 40px;
+        .card-header {
+            .card-title {
+                margin-bottom: 6px;
+            }
+            .card-subtitle {
+                margin-bottom: 0px;
+            }
+        }
     }
     .comparison-slider {
         margin: 0 auto;

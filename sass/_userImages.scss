@@ -22,7 +22,10 @@
             }
         }
         .card-header {
-            h4 {
+            .card-title {
+                margin-bottom: 4px;
+            }
+            .card-subtitle {
                 margin-bottom: 0px;
             }
             .btn {

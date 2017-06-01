@@ -52,6 +52,10 @@ body {
 
 .home-template .card {
   margin-bottom: 40px; }
+  .home-template .card .card-header .card-title {
+    margin-bottom: 6px; }
+  .home-template .card .card-header .card-subtitle {
+    margin-bottom: 0px; }
 
 .home-template .comparison-slider {
   margin: 0 auto;
@@ -83,7 +87,9 @@ body {
       padding-right: 5px; }
     .user-images-template .card .card-image .col-right {
       padding-left: 5px; } }
-  .user-images-template .card .card-header h4 {
+  .user-images-template .card .card-header .card-title {
+    margin-bottom: 4px; }
+  .user-images-template .card .card-header .card-subtitle {
     margin-bottom: 0px; }
   .user-images-template .card .card-header .btn {
     margin-top: -8px; }

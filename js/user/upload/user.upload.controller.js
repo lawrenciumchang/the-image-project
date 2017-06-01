@@ -4,7 +4,7 @@ app
     .controller('UserUploadController', UserUploadController);
 
 /* @ngInject */
-function UserUploadController($q, $scope, $state, $firebaseAuth, Upload, $timeout) {
+function UserUploadController($q, $scope, $state, $firebaseAuth, Upload, $timeout, moment) {
     var vm = this;
     vm.submit = submit;
 
@@ -20,7 +20,8 @@ function UserUploadController($q, $scope, $state, $firebaseAuth, Upload, $timeou
         after: {
             image: '',
             filename: ''
-        }
+        },
+        uploadTime: moment().format().toString()
     };
 
     var auth = $firebaseAuth();
@@ -78,6 +79,7 @@ function UserUploadController($q, $scope, $state, $firebaseAuth, Upload, $timeou
                 before: vm.upload.before.filename,
                 description: vm.upload.description,
                 title: vm.upload.title,
+                uploadTime: vm.upload.uploadTime,
                 username: vm.user.displayName,
                 uid: vm.user.uid
             });
