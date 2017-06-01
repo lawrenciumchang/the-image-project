@@ -2,7 +2,7 @@
 
 app
     .config(Routes)
-    .run(function($rootScope, $state, $firebaseAuth) {
+    .run(function($rootScope, $state, $firebaseAuth, $anchorScroll) {
         $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
             var auth = $firebaseAuth();
             auth.$onAuthStateChanged(function(user) {
@@ -11,6 +11,9 @@ app
                     $state.go('home');
                 }
             });
+        });
+        $rootScope.$on('$locationChangeSuccess', function(){
+            $anchorScroll();
         });
     })
     .config(['$locationProvider', function($locationProvider) {
