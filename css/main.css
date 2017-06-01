@@ -63,6 +63,11 @@ body {
 .home-template .comparison-slider .comparison-after::after {
   z-index: 1; }
 
+.home-template .empty {
+  margin-top: 25%; }
+  .home-template .empty .empty-icon {
+    font-size: 4rem; }
+
 .user-images-template .section-title {
   padding-bottom: 10px; }
 

@@ -12,4 +12,10 @@
     .comparison-slider .comparison-after::after {
         z-index: 1;
     }
+    .empty {
+        margin-top: 25%;
+        .empty-icon {
+            font-size: 4rem;
+        }
+    }
 }
