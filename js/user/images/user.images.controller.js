@@ -22,15 +22,17 @@ function UserImagesController($q, $scope, $firebaseAuth) {
     }
 
     function getUserImages() {
-        firebase.database().ref('/images').once('value').then(function(images) {
-            vm.images = images.val();
-            angular.forEach(vm.images, function(image) {
-                if(image.uid == vm.user.uid) {
-                    vm.userImages.push(image);
-                }
+        if(vm.user) {
+            firebase.database().ref('/images').once('value').then(function(images) {
+                vm.images = images.val();
+                angular.forEach(vm.images, function(image) {
+                    if(image.uid == vm.user.uid) {
+                        vm.userImages.push(image);
+                    }
+                });
+                $scope.$apply();
             });
-            $scope.$apply();
-        });
+        }
     }
 
     auth.$onAuthStateChanged(function(user) {
