@@ -98,6 +98,10 @@ body {
     margin-top: -8px; }
     .user-images-template .card .card-header .btn.btn-edit {
       margin-right: 8px; }
+  .user-images-template .card .card-body .action-row {
+    margin-top: 16px; }
+    .user-images-template .card .card-body .action-row .btn-cancel {
+      margin-right: 4px; }
 
 .user-upload-template h6 {
   margin-bottom: 10px; }

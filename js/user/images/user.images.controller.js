@@ -6,6 +6,8 @@ app
 /* @ngInject */
 function UserImagesController($q, $scope, $firebaseAuth) {
     var vm = this;
+    vm.toggleEditMode = toggleEditMode;
+    vm.updatePost = updatePost;
 
     vm.reverseSort = true;
     vm.userImages = [];
@@ -31,6 +33,14 @@ function UserImagesController($q, $scope, $firebaseAuth) {
             });
             $scope.$apply();
         });
+    }
+
+    function toggleEditMode(image) {
+        image.toggle = !image.toggle;
+    }
+
+    function updatePost(image) {
+
     }
 
     auth.$onAuthStateChanged(function(user) {

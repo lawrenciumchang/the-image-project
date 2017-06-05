@@ -10,14 +10,32 @@
                     <img firebase-src="{{'images/'+image.after}}"/>
                 </div>
             </div>
-            <div class="card-header">
-                <button class="btn btn-primary float-right"><span><i class="icon icon-delete"></i></span></button>
-                <button class="btn btn-primary float-right btn-edit"><span><i class="icon icon-edit"></i></span></button>
-                <h4 class="card-title">{{image.title}}</h4>
-                <h6 class="card-subtitle">Uploaded <span am-time-ago="image.uploadTime"></span></h6>
+            <div ng-if="!image.toggle">
+                <div class="card-header">
+                    <button class="btn btn-primary float-right"><span><i class="icon icon-delete"></i></span></button>
+                    <button class="btn btn-primary float-right btn-edit" ng-click="vm.toggleEditMode(image)"><span><i class="icon icon-edit"></i></span></button>
+                    <h4 class="card-title">{{image.title}}</h4>
+                    <h6 class="card-subtitle">Uploaded <span am-time-ago="image.uploadTime"></span></h6>
+                </div>
+                <div class="card-body">
+                    <p>{{image.description}}</p>
+                </div>
             </div>
-            <div class="card-body">
-                <p>{{image.description}}</p>
+            <div ng-if="image.toggle">
+                <form name="editForm" ng-model-options="{updateOn: 'submit'}" ng-submit="vm.updatePost(image);">
+                    <div class="card-header">
+                        <label class="form-label" for="title">Title</label>
+                        <input class="form-input" type="text" id="title" placeholder=" " ng-model="image.title" required/>
+                    </div>
+                    <div class="card-body">
+                        <label class="form-label" for="description">Description (optional)</label>
+                        <textarea class="form-input" type="text" id="description" rows="4" ng-model="image.description"></textarea>
+                        <div class="action-row text-right">
+                            <button class="btn btn-cancel" ng-click="editForm.$rollbackViewValue(); vm.toggleEditMode(image)"><span>Cancel</span></button>
+                            <button class="btn btn-primary" type="submit" ng-disabled="editForm.$invalid"><span>Update</span></button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

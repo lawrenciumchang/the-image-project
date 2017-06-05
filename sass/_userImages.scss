@@ -35,5 +35,13 @@
                 }
             }
         }
+        .card-body {
+            .action-row {
+                margin-top: 16px;
+                .btn-cancel {
+                    margin-right: 4px;
+                }
+            }   
+        }
     }
 }
