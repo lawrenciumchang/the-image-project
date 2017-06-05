@@ -24,7 +24,7 @@
             <div ng-if="image.toggle">
                 <form name="editForm" ng-model-options="{updateOn: 'submit'}" ng-submit="vm.updatePost(image);">
                     <div class="card-header">
-                        <label class="form-label" for="title">Title</label>
+                        <label class="form-label title-label" for="title">Title</label>
                         <input class="form-input" type="text" id="title" placeholder=" " ng-model="image.title" required/>
                     </div>
                     <div class="card-body">
