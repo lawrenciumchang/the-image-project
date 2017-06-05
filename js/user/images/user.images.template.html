@@ -10,9 +10,9 @@
                     <img firebase-src="{{'images/'+image.after}}"/>
                 </div>
             </div>
-            <div ng-if="!image.toggle">
+            <div ng-if="!image.editMode && !image.deleteMode">
                 <div class="card-header">
-                    <button class="btn btn-primary float-right"><span><i class="icon icon-delete"></i></span></button>
+                    <button class="btn btn-primary float-right" ng-click="vm.toggleDeleteMode(image)"><span><i class="icon icon-delete"></i></span></button>
                     <button class="btn btn-primary float-right btn-edit" ng-click="vm.toggleEditMode(image)"><span><i class="icon icon-edit"></i></span></button>
                     <h4 class="card-title">{{image.title}}</h4>
                     <h6 class="card-subtitle">Uploaded <span am-time-ago="image.uploadTime"></span></h6>
@@ -21,7 +21,7 @@
                     <p>{{image.description}}</p>
                 </div>
             </div>
-            <div ng-if="image.toggle">
+            <div class="edit-container" ng-if="image.editMode">
                 <form name="editForm" ng-model-options="{updateOn: 'submit'}" ng-submit="vm.updatePost(image);">
                     <div class="card-header">
                         <label class="form-label title-label" for="title">Title</label>
@@ -31,11 +31,20 @@
                         <label class="form-label" for="description">Description (optional)</label>
                         <textarea class="form-input" type="text" id="description" rows="4" ng-model="image.description"></textarea>
                         <div class="action-row text-right">
+                            <button class="btn btn-primary btn-update" type="submit" ng-disabled="editForm.$invalid"><span>Update</span></button>
                             <button class="btn btn-cancel" ng-click="editForm.$rollbackViewValue(); vm.toggleEditMode(image)"><span>Cancel</span></button>
-                            <button class="btn btn-primary" type="submit" ng-disabled="editForm.$invalid"><span>Update</span></button>
                         </div>
                     </div>
                 </form>
+            </div>
+            <div class="delete-container" ng-if="image.deleteMode">
+                <div class="content">
+                    <p class="text-center">Are you sure you want to delete this entry?</p>
+                    <div class="action-row text-center">
+                        <button class="btn btn-primary" ng-click="vm.deletePost(image)"><span><i class="icon icon-check"></i></span></button>
+                        <button class="btn" ng-click="vm.toggleDeleteMode(image)"><span><i class="icon icon-cross"></i></span></button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

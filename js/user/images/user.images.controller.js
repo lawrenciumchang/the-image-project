@@ -8,6 +8,8 @@ function UserImagesController($q, $scope, $firebaseAuth) {
     var vm = this;
     vm.toggleEditMode = toggleEditMode;
     vm.updatePost = updatePost;
+    vm.toggleDeleteMode = toggleDeleteMode;
+    vm.deletePost = deletePost;
 
     vm.reverseSort = true;
     vm.userImages = [];
@@ -36,10 +38,18 @@ function UserImagesController($q, $scope, $firebaseAuth) {
     }
 
     function toggleEditMode(image) {
-        image.toggle = !image.toggle;
+        image.editMode = !image.editMode;
     }
 
     function updatePost(image) {
+
+    }
+
+    function toggleDeleteMode(image) {
+        image.deleteMode = !image.deleteMode;
+    }
+
+    function deletePost(image) {
 
     }
 

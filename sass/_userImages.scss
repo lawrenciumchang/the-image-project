@@ -41,10 +41,22 @@
         .card-body {
             .action-row {
                 margin-top: 16px;
-                .btn-cancel {
+                .btn-update {
                     margin-right: 4px;
                 }
             }   
+        }
+        .delete-container {
+            height: 120px;
+            display: table;
+            width: 100%;
+            .content {
+                display: table-cell;
+                vertical-align: middle;
+                .action-row {
+                    margin-top: 4px;
+                }
+            }
         }
     }
 }
