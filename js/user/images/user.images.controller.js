@@ -4,7 +4,7 @@ app
     .controller('UserImagesController', UserImagesController);
 
 /* @ngInject */
-function UserImagesController($q, $scope, $firebaseAuth) {
+function UserImagesController($q, $scope, $firebaseAuth, $firebaseArray) {
     var vm = this;
     vm.toggleEditMode = toggleEditMode;
     vm.updatePost = updatePost;
@@ -12,7 +12,6 @@ function UserImagesController($q, $scope, $firebaseAuth) {
     vm.deletePost = deletePost;
 
     vm.reverseSort = true;
-    vm.userImages = [];
 
     var auth = $firebaseAuth();
 
@@ -26,15 +25,8 @@ function UserImagesController($q, $scope, $firebaseAuth) {
     }
 
     function getUserImages() {
-        firebase.database().ref('/images').once('value').then(function(images) {
-            vm.images = images.val();
-            angular.forEach(vm.images, function(image) {
-                if(image.uid == vm.user.uid) {
-                    vm.userImages.push(image);
-                }
-            });
-            $scope.$apply();
-        });
+        var imagesRef = firebase.database().ref('/images');
+        vm.images = $firebaseArray(imagesRef);
     }
 
     function toggleEditMode(image) {
