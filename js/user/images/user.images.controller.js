@@ -34,7 +34,10 @@ function UserImagesController($q, $scope, $firebaseAuth, $firebaseArray) {
     }
 
     function updatePost(image) {
-
+        var index = vm.images.$indexFor(image.$id);
+        vm.images.$save(index).then(function() {
+            toggleEditMode(image);
+        });
     }
 
     function toggleDeleteMode(image) {
