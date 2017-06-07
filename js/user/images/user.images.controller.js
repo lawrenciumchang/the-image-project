@@ -4,7 +4,7 @@ app
     .controller('UserImagesController', UserImagesController);
 
 /* @ngInject */
-function UserImagesController($q, $scope, $firebaseAuth, $firebaseArray) {
+function UserImagesController($q, $scope, $firebaseAuth, $firebaseArray, $firebaseStorage) {
     var vm = this;
     vm.toggleEditMode = toggleEditMode;
     vm.updatePost = updatePost;
@@ -45,7 +45,21 @@ function UserImagesController($q, $scope, $firebaseAuth, $firebaseArray) {
     }
 
     function deletePost(image) {
+        var index = vm.images.$indexFor(image.$id);
+        var beforeImage = image.before;
+        var afterImage = image.after;
+        vm.images.$remove(index).then(function() {
+            var ref = firebase.storage().ref('/images');
+            var beforeImageRef = ref.child(beforeImage);
+            var afterImageRef = ref.child(afterImage);
+            var beforeStorage = $firebaseStorage(beforeImageRef);
+            var afterStorage = $firebaseStorage(afterImageRef);
+            beforeStorage.$delete().then(function() {
+                afterStorage.$delete().then(function() {
 
+                });
+            });
+        });
     }
 
     auth.$onAuthStateChanged(function(user) {
