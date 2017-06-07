@@ -4,7 +4,7 @@ app
     .controller('UserUploadController', UserUploadController);
 
 /* @ngInject */
-function UserUploadController($q, $scope, $state, $firebaseAuth, Upload, $timeout, moment) {
+function UserUploadController($q, $scope, $state, $firebaseAuth, $firebaseStorage, $firebaseArray, Upload, $timeout, moment) {
     var vm = this;
     vm.submit = submit;
 
@@ -66,7 +66,8 @@ function UserUploadController($q, $scope, $state, $firebaseAuth, Upload, $timeou
                 contentType: 'image/jpeg',
             };
             var ref = firebase.storage().ref('/images').child(filename);
-            ref.putString(dataUrl, 'base64', metadata);
+            var storage = $firebaseStorage(ref);
+            storage.$putString(dataUrl, 'base64', metadata);
         });
     }
 
@@ -74,7 +75,9 @@ function UserUploadController($q, $scope, $state, $firebaseAuth, Upload, $timeou
         $('.btn-submit').addClass('loading');
         var promises = [uploadImage('before', vm.upload.before.image), uploadImage('after', vm.upload.after.image)];
         return $q.all(promises).then(function() {
-            firebase.database().ref('images').push({
+            var ref = firebase.database().ref('images');
+            var database = $firebaseArray(ref);
+            database.$add({
                 after: vm.upload.after.filename,
                 before: vm.upload.before.filename,
                 description: vm.upload.description,
@@ -82,11 +85,12 @@ function UserUploadController($q, $scope, $state, $firebaseAuth, Upload, $timeou
                 uploadTime: vm.upload.uploadTime,
                 username: vm.user.displayName,
                 uid: vm.user.uid
+            }).then(function() {
+                $timeout(function() {
+                    $('.btn-submit').removeClass('loading');
+                    $state.go('user.images');
+                }, 2000);
             });
-            $timeout(function() {
-                $('.btn-submit').removeClass('loading');
-                $state.go('user.images');
-            }, 2000);
         });
     }
 

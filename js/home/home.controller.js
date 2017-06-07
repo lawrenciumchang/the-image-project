@@ -4,7 +4,7 @@ app
     .controller('HomeController', HomeController);
 
 /* @ngInject */
-function HomeController($q, $scope, $firebaseAuth) {
+function HomeController($q, $firebaseAuth, $firebaseArray) {
     var vm = this;
 
     vm.reverseSort = true;
@@ -22,12 +22,8 @@ function HomeController($q, $scope, $firebaseAuth) {
     }
 
     function getImages() {
-        firebase.database().ref('/images').once('value').then(function(images) {
-            angular.forEach(images.val(), function(image){
-                vm.images.push(image);
-            });
-            $scope.$apply();
-        });
+        var ref = firebase.database().ref('/images');
+        vm.images = $firebaseArray(ref);
     }
 
     auth.$onAuthStateChanged(function(user) {
