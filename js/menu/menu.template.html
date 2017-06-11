@@ -1,5 +1,10 @@
 <div ng-controller="MenuController as vm" class="menu-template">
     <div class="menu-bar container grid-960">
+        <div class="toast-messages text-center">
+            <div class="toast toast-primary login-success hide">
+                <span>Welcome back, {{vm.user.displayName}}!</span>
+            </div>
+        </div>
         <nav class="navbar">
             <section class="navbar-section">
                 <h4 class="title" ui-sref="home">The Image Project</h4>
@@ -16,7 +21,7 @@
                             <div class="panel-header">
                                 <div class="panel-title text-center">
                                     <span ng-if="vm.signUpView">Create an Account</span>
-                                    <span ng-if="!vm.signUpView">Welcome Back!</span>
+                                    <span ng-if="!vm.signUpView">Log In</span>
                                 </div>
                             </div>
                             <div class="panel-body">

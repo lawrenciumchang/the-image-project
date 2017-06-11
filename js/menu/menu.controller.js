@@ -76,7 +76,10 @@ function MenuController($q, $state, $firebaseAuth) {
         $('#login-password').removeClass('is-error');
         auth.$signInWithEmailAndPassword(logInForm.email, logInForm.password)
             .then(function() {
-
+                $('.login-success').fadeIn().removeClass('hide');
+                setTimeout(function() {
+                    $('.login-success').fadeOut();
+                }, 2000);
             })
             .catch(function(error) {
                 switch(error.code) {

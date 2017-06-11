@@ -30,6 +30,8 @@ body {
       position: fixed;
       top: 80px;
       z-index: 1000; }
+      body .toast-messages .toast.login-success {
+        width: 300px; }
 
 .font-light {
   font-weight: 300; }

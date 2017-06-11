@@ -38,6 +38,9 @@ body {
             position: fixed;
             top: 80px;
             z-index: 1000;
+            &.login-success {
+                width: 300px;
+            }
         }
     }
 }
