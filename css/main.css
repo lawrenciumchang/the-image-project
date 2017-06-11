@@ -80,6 +80,15 @@ body {
   .home-template .empty .empty-icon {
     font-size: 4rem; }
 
+.user-images-template .toast-messages {
+  display: flex;
+  justify-content: flex-end; }
+  .user-images-template .toast-messages .toast {
+    width: 200px;
+    position: fixed;
+    top: 80px;
+    z-index: 1000; }
+
 .user-images-template .section-title {
   padding-bottom: 10px; }
 

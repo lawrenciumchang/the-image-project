@@ -1,4 +1,14 @@
 .user-images-template {
+    .toast-messages {
+        display: flex;
+        justify-content: flex-end;
+        .toast {
+            width: 200px;
+            position: fixed;
+            top: 80px;
+            z-index: 1000;
+        }
+    }
     .section-title {
         padding-bottom: 10px;
     }

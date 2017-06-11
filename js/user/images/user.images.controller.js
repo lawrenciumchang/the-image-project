@@ -44,7 +44,17 @@ function UserImagesController($q, $scope, $firebaseAuth, $firebaseArray, $fireba
     function updatePost(image) {
         var index = vm.images.$indexFor(image.$id);
         vm.images.$save(index).then(function() {
+            $('.update-success').fadeIn().removeClass('hide');
+            setTimeout(function() {
+                $('.update-success').fadeOut();
+            }, 2000);
             toggleEditMode(image);
+        })
+        .catch(function(error) {
+            $('.update-error').fadeIn().removeClass('hide');
+            setTimeout(function() {
+                $('.update-error').fadeOut();
+            }, 2000);
         });
     }
 
@@ -57,6 +67,10 @@ function UserImagesController($q, $scope, $firebaseAuth, $firebaseArray, $fireba
         var beforeImage = image.before;
         var afterImage = image.after;
         vm.images.$remove(index).then(function() {
+            $('.delete-success').fadeIn().removeClass('hide');
+            setTimeout(function() {
+                $('.delete-success').fadeOut();
+            }, 2000);
             var ref = firebase.storage().ref('/images');
             var beforeImageRef = ref.child(beforeImage);
             var afterImageRef = ref.child(afterImage);
@@ -67,6 +81,12 @@ function UserImagesController($q, $scope, $firebaseAuth, $firebaseArray, $fireba
 
                 });
             });
+        })
+        .catch(function(error) {
+            $('.delete-error').fadeIn().removeClass('hide');
+            setTimeout(function() {
+                $('.delete-error').fadeOut();
+            }, 2000);
         });
     }
 
