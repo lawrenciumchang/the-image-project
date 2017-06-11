@@ -1,6 +1,16 @@
 <div class="user-images-template">
     <div class="container grid-960">
         <h5 class="section-title"><i class="icon icon-photo"></i> My Images</h5>
+        <div ng-if="vm.noUserImages" class="empty">
+            <div class="empty-icon">
+                <i class="icon icon-photo"></i>
+            </div>
+            <h4 class="empty-title">You have no photos :(</h4>
+            <p class="empty-subtitle">Upload one now!</p>
+            <div class="empty-action">
+                <button class="btn btn-primary" ui-sref="user.upload"><span><i class="icon icon-upload"></i> Upload Image</span></button>
+            </div>
+        </div>
         <div class="card" ng-repeat="image in vm.images | orderBy : 'uploadTime' : vm.reverseSort" ng-if="image.uid === vm.user.uid" ng-init="image.editMode = false; image.deleteMode = false;">
             <div class="card-image columns">
                 <div class="column col-left col-sm-12 col-md-6">

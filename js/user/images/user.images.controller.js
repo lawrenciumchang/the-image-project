@@ -20,7 +20,15 @@ function UserImagesController($q, $scope, $firebaseAuth, $firebaseArray, $fireba
     function activate() {
         var promises = [getUserImages()];
         return $q.all(promises).then(function() {
-
+            $('.section-title').fadeIn('slow');
+            setTimeout(function() {
+                if($('.card').length == 0) {
+                    vm.noUserImages = true;
+                    $scope.$apply();
+                    $('.empty').fadeIn('slow');
+                }
+                $('.card').fadeIn('slow');
+            }, 1000);
         });
     }
 
