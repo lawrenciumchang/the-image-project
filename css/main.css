@@ -12,12 +12,14 @@ body {
     cursor: pointer; }
     body a:hover {
       text-decoration: none; }
-  body .section-title .icon {
-    margin-top: -5px;
-    margin-right: 3px; }
-  @media (max-width: 478px) {
-    body .section-title {
-      padding-top: 8px; } }
+  body .section-title {
+    display: none; }
+    body .section-title .icon {
+      margin-top: -5px;
+      margin-right: 3px; }
+    @media (max-width: 478px) {
+      body .section-title {
+        padding-top: 8px; } }
   body .btn span {
     line-height: 2.2rem; }
 
@@ -53,6 +55,9 @@ body {
   .menu-template .menu-bar .menu-icon {
     margin-right: 10px; }
 
+.home-template .container {
+  display: none; }
+
 .home-template .card {
   margin-bottom: 40px; }
   .home-template .card .card-header .card-title {
@@ -76,7 +81,6 @@ body {
     font-size: 4rem; }
 
 .user-images-template .section-title {
-  display: none;
   padding-bottom: 10px; }
 
 .user-images-template .empty {
@@ -125,32 +129,35 @@ body {
 .user-upload-template h6 {
   margin-bottom: 10px; }
 
-.user-upload-template .drop-box {
-  background: #f8f9fa;
-  border: 4px dashed #ddd;
-  width: 100%;
-  height: 320px;
-  text-align: center;
-  display: table;
-  cursor: pointer; }
-  .user-upload-template .drop-box .label {
-    display: table-cell;
-    vertical-align: middle; }
-  .user-upload-template .drop-box .image-preview {
-    display: table-cell; }
-    .user-upload-template .drop-box .image-preview img {
-      height: 270px;
-      padding-top: 20px;
-      padding-bottom: 6px; }
-
-.user-upload-template .dragover {
-  border: 4px dashed #5867c3; }
-
-.user-upload-template .form-group {
-  margin-bottom: 0px; }
+.user-upload-template .upload-form {
+  display: none; }
+  .user-upload-template .upload-form .drop-box {
+    background: #f8f9fa;
+    border: 4px dashed #ddd;
+    width: 100%;
+    height: 320px;
+    text-align: center;
+    display: table;
+    cursor: pointer; }
+    .user-upload-template .upload-form .drop-box .label {
+      display: table-cell;
+      vertical-align: middle; }
+    .user-upload-template .upload-form .drop-box .image-preview {
+      display: table-cell; }
+      .user-upload-template .upload-form .drop-box .image-preview img {
+        height: 270px;
+        padding-top: 20px;
+        padding-bottom: 6px; }
+  .user-upload-template .upload-form .dragover {
+    border: 4px dashed #5867c3; }
+  .user-upload-template .upload-form .form-group {
+    margin-bottom: 0px; }
 
 .user-profile-template h6 {
   margin-top: 8px; }
+
+.user-profile-template .profile {
+  display: none; }
 
 .footer {
   background-color: #f8f9fa;

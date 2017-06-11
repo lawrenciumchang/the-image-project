@@ -31,7 +31,10 @@ function UserUploadController($q, $scope, $state, $firebaseAuth, $firebaseStorag
     function activate() {
         var promises = [];
         return $q.all(promises).then(function() {
-            
+            $('.section-title').fadeIn('slow');
+            setTimeout(function() {
+                $('.upload-form').fadeIn('slow');
+            }, 1000);
         });
     }
 

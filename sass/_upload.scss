@@ -2,31 +2,34 @@
     h6 {
         margin-bottom: 10px;
     }
-    .drop-box {
-        background: $gray;
-        border: 4px dashed #ddd;
-        width: 100%;
-        height: 320px;
-        text-align: center;
-        display: table;
-        cursor: pointer;
-        .label {
-            display: table-cell;
-            vertical-align: middle;
-        }
-        .image-preview {
-            display: table-cell;
-            img {
-                height: 270px;
-                padding-top: 20px;
-                padding-bottom: 6px;
+    .upload-form {
+        display: none;
+        .drop-box {
+            background: $gray;
+            border: 4px dashed #ddd;
+            width: 100%;
+            height: 320px;
+            text-align: center;
+            display: table;
+            cursor: pointer;
+            .label {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            .image-preview {
+                display: table-cell;
+                img {
+                    height: 270px;
+                    padding-top: 20px;
+                    padding-bottom: 6px;
+                }
             }
         }
-    }
-    .dragover {
-        border: 4px dashed $blue;
-    }
-    .form-group {
-        margin-bottom: 0px;
+        .dragover {
+            border: 4px dashed $blue;
+        }
+        .form-group {
+            margin-bottom: 0px;
+        }
     }
 }

@@ -16,7 +16,10 @@ function UserProfileController($q, $firebaseAuth) {
     function activate() {
         var promises = [];
         return $q.all(promises).then(function() {
-
+            $('.section-title').fadeIn('slow');
+            setTimeout(function() {
+                $('.profile').fadeIn('slow');
+            }, 1000);
         });
     }
 

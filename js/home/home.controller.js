@@ -4,7 +4,7 @@ app
     .controller('HomeController', HomeController);
 
 /* @ngInject */
-function HomeController($q, $firebaseAuth, $firebaseArray) {
+function HomeController($q, $scope, $firebaseAuth, $firebaseArray) {
     var vm = this;
 
     vm.reverseSort = true;
@@ -17,7 +17,11 @@ function HomeController($q, $firebaseAuth, $firebaseArray) {
     function activate() {
         var promises = [getImages()];
         return $q.all(promises).then(function() {
-
+            setTimeout(function() {
+                vm.showImages = true;
+                $scope.$apply();
+                $('.container').fadeIn('slow');
+            }, 1000);
         });
     }
 
