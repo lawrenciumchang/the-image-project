@@ -30,4 +30,14 @@ body {
             line-height: 2.2rem;
         }
     }
+    .toast-messages {
+        display: flex;
+        justify-content: flex-end;
+        .toast {
+            width: 200px;
+            position: fixed;
+            top: 80px;
+            z-index: 1000;
+        }
+    }
 }

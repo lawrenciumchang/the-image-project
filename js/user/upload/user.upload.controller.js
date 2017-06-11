@@ -93,6 +93,11 @@ function UserUploadController($q, $scope, $state, $firebaseAuth, $firebaseStorag
                     $('.btn-submit').removeClass('loading');
                     $state.go('user.images');
                 }, 2000);
+            }).catch(function(error) {
+                $('.upload-error').fadeIn().removeClass('hide');
+                setTimeout(function() {
+                    $('.upload-error').fadeOut();
+                }, 2000);
             });
         });
     }

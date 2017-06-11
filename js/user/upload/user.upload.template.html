@@ -1,5 +1,10 @@
 <div class="user-upload-template">
     <div class="container grid-960">
+        <div class="toast-messages text-center">
+            <div class="toast toast-error upload-error hide">
+                <span><i class="icon icon-cross"></i> Error uploading post</span>
+            </div>
+        </div>
         <h5 class="section-title"><i class="icon icon-upload"></i> Upload</h5>
         <form class="upload-form" name="uploadForm" ng-submit="vm.submit()">
             <div class="columns">
