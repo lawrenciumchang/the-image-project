@@ -48,7 +48,7 @@ function MenuController($q, $state, $firebaseAuth) {
                     $('.signup-success').fadeIn().removeClass('hide').delay(2000).fadeOut();
                     $state.reload();
                 }).catch(function(error) {
-                    console.log(error.code, error.message);
+                    $('.general-error').fadeIn().removeClass('hide').delay(2000).fadeOut();
                 });
             })
             .catch(function(error) {
@@ -110,7 +110,7 @@ function MenuController($q, $state, $firebaseAuth) {
                 $state.go('home');
             })
             .catch(function(error) {
-                console.log(error.code, error.message);
+                $('.general-error').fadeIn().removeClass('hide').delay(2000).fadeOut();
             });
     }
 
