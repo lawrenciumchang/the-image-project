@@ -4,7 +4,7 @@ app
     .controller('UserImagesController', UserImagesController);
 
 /* @ngInject */
-function UserImagesController($q, $scope, $firebaseAuth, $firebaseArray, $firebaseStorage, UserUploadService) {
+function UserImagesController($q, $scope, $timeout, $firebaseAuth, $firebaseArray, $firebaseStorage, UserUploadService) {
     var vm = this;
     vm.toggleEditMode = toggleEditMode;
     vm.updatePost = updatePost;
@@ -65,25 +65,29 @@ function UserImagesController($q, $scope, $firebaseAuth, $firebaseArray, $fireba
     }
 
     function deletePost(image) {
-        var index = vm.images.$indexFor(image.$id);
-        var beforeImage = image.before;
-        var afterImage = image.after;
-        vm.images.$remove(index).then(function() {
-            $('.delete-success').fadeIn().removeClass('hide').delay(2000).fadeOut();
-            var ref = firebase.storage().ref('/images');
-            var beforeImageRef = ref.child(beforeImage);
-            var afterImageRef = ref.child(afterImage);
-            var beforeStorage = $firebaseStorage(beforeImageRef);
-            var afterStorage = $firebaseStorage(afterImageRef);
-            beforeStorage.$delete().then(function() {
-                afterStorage.$delete().then(function() {
+        $('#'+image.$id).fadeOut();
+        $('.delete-success').fadeIn().removeClass('hide').delay(2000).fadeOut();
+        $timeout(function() {
+            var index = vm.images.$indexFor(image.$id);
+            var beforeImage = image.before;
+            var afterImage = image.after;
+            vm.images.$remove(index).then(function() {
+                var ref = firebase.storage().ref('/images');
+                var beforeImageRef = ref.child(beforeImage);
+                var afterImageRef = ref.child(afterImage);
+                var beforeStorage = $firebaseStorage(beforeImageRef);
+                var afterStorage = $firebaseStorage(afterImageRef);
+                beforeStorage.$delete().then(function() {
+                    afterStorage.$delete().then(function() {
 
+                    });
                 });
+            })
+            .catch(function(error) {
+                $('#'+image.$id).fadeIn();
+                $('.delete-error').fadeIn().removeClass('hide').delay(2000).fadeOut();
             });
-        })
-        .catch(function(error) {
-            $('.delete-error').fadeIn().removeClass('hide').delay(2000).fadeOut();
-        });
+        }, 1000);
     }
 
     auth.$onAuthStateChanged(function(user) {

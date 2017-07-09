@@ -28,7 +28,7 @@
                 <button class="btn btn-primary" ui-sref="user.upload"><span><i class="icon icon-upload"></i> Upload Image</span></button>
             </div>
         </div>
-        <div class="card" ng-repeat="image in vm.images | orderBy : 'uploadTime' : vm.reverseSort" ng-if="image.uid === vm.user.uid" ng-init="image.editMode = false; image.deleteMode = false;">
+        <div class="card" id="{{image.$id}}" ng-repeat="image in vm.images | orderBy : 'uploadTime' : vm.reverseSort" ng-if="image.uid === vm.user.uid" ng-init="image.editMode = false; image.deleteMode = false;">
             <div class="card-image columns">
                 <div class="column col-left col-sm-12 col-md-6">
                     <img firebase-src="{{'images/'+image.before}}"/>
