@@ -4,7 +4,7 @@ app
     .controller('UserUploadController', UserUploadController);
 
 /* @ngInject */
-function UserUploadController($q, $scope, $state, $firebaseAuth, $firebaseStorage, $firebaseArray, Upload, $timeout, moment) {
+function UserUploadController($q, $scope, $state, $firebaseAuth, $firebaseStorage, $firebaseArray, Upload, $timeout, moment, UserUploadService) {
     var vm = this;
     vm.submit = submit;
 
@@ -91,13 +91,12 @@ function UserUploadController($q, $scope, $state, $firebaseAuth, $firebaseStorag
             }).then(function() {
                 $timeout(function() {
                     $('.btn-submit').removeClass('loading');
+                    UserUploadService.setSuccessStatus(true);
                     $state.go('user.images');
                 }, 2000);
             }).catch(function(error) {
-                $('.upload-error').fadeIn().removeClass('hide');
-                setTimeout(function() {
-                    $('.upload-error').fadeOut();
-                }, 2000);
+                $('.upload-error').fadeIn().removeClass('hide').delay(2000).fadeOut();
+                UserUploadService.setSuccessStatus(false);
             });
         });
     }

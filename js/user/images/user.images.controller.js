@@ -4,7 +4,7 @@ app
     .controller('UserImagesController', UserImagesController);
 
 /* @ngInject */
-function UserImagesController($q, $scope, $firebaseAuth, $firebaseArray, $firebaseStorage) {
+function UserImagesController($q, $scope, $firebaseAuth, $firebaseArray, $firebaseStorage, UserUploadService) {
     var vm = this;
     vm.toggleEditMode = toggleEditMode;
     vm.updatePost = updatePost;
@@ -18,7 +18,7 @@ function UserImagesController($q, $scope, $firebaseAuth, $firebaseArray, $fireba
     activate();
 
     function activate() {
-        var promises = [getUserImages()];
+        var promises = [getUserImages(), checkForNewUpload()];
         return $q.all(promises).then(function() {
             $('.section-title').fadeIn('slow');
             setTimeout(function() {
@@ -35,6 +35,14 @@ function UserImagesController($q, $scope, $firebaseAuth, $firebaseArray, $fireba
     function getUserImages() {
         var imagesRef = firebase.database().ref('/images');
         vm.images = $firebaseArray(imagesRef);
+    }
+
+    function checkForNewUpload() {
+        var uploadSuccess = UserUploadService.getSuccessStatus();
+        if(uploadSuccess) {
+            $('.upload-success').fadeIn().removeClass('hide').delay(2000).fadeOut();
+            UserUploadService.setSuccessStatus(false);
+        }
     }
 
     function toggleEditMode(image) {
