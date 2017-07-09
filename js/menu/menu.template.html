@@ -1,6 +1,9 @@
 <div ng-controller="MenuController as vm" class="menu-template">
     <div class="menu-bar container grid-960">
         <div class="toast-messages text-center">
+            <div class="toast toast-primary signup-success hide">
+                <span>Welcome, {{vm.user.displayName}}!</span>
+            </div>
             <div class="toast toast-primary login-success hide">
                 <span>Welcome back, {{vm.user.displayName}}!</span>
             </div>

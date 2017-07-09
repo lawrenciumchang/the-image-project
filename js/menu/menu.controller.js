@@ -45,6 +45,7 @@ function MenuController($q, $state, $firebaseAuth) {
                 user.updateProfile({
                     displayName: signUpForm.name
                 }).then(function() {
+                    $('.signup-success').fadeIn().removeClass('hide').delay(2000).fadeOut();
                     $state.reload();
                 }).catch(function(error) {
                     console.log(error.code, error.message);
