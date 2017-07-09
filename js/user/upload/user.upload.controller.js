@@ -4,7 +4,7 @@ app
     .controller('UserUploadController', UserUploadController);
 
 /* @ngInject */
-function UserUploadController($q, $scope, $state, $firebaseAuth, $firebaseStorage, $firebaseArray, Upload, $timeout, moment, UserUploadService) {
+function UserUploadController($q, $scope, $state, $firebaseAuth, $firebaseStorage, $firebaseArray, Upload, moment, UserUploadService) {
     var vm = this;
     vm.submit = submit;
 
@@ -62,6 +62,7 @@ function UserUploadController($q, $scope, $state, $firebaseAuth, $firebaseStorag
     }
 
     function uploadImage(key, image) {
+        var q = $q.defer();
         Upload.dataUrl(image, true).then(function(dataUrl){
             dataUrl = dataUrl.substring(dataUrl.indexOf(',')+1);
             var filename = key == 'before' ? vm.upload.before.filename : vm.upload.after.filename;
@@ -70,8 +71,17 @@ function UserUploadController($q, $scope, $state, $firebaseAuth, $firebaseStorag
             };
             var ref = firebase.storage().ref('/images').child(filename);
             var storage = $firebaseStorage(ref);
-            storage.$putString(dataUrl, 'base64', metadata);
+            var uploadTask = storage.$putString(dataUrl, 'base64', metadata);
+            uploadTask.$complete(function(snapshot) {
+                q.resolve();
+            });
+            uploadTask.$error(function(error) {
+                $('.upload-error').fadeIn().removeClass('hide').delay(2000).fadeOut();
+                UserUploadService.setSuccessStatus(false);
+                q.reject();
+            });
         });
+        return q.promise;
     }
 
     function submit() {
@@ -88,12 +98,10 @@ function UserUploadController($q, $scope, $state, $firebaseAuth, $firebaseStorag
                 uploadTime: vm.upload.uploadTime,
                 username: vm.user.displayName,
                 uid: vm.user.uid
-            }).then(function() {
-                $timeout(function() {
-                    $('.btn-submit').removeClass('loading');
-                    UserUploadService.setSuccessStatus(true);
-                    $state.go('user.images');
-                }, 2000);
+            }).then(function(resp) {
+                $('.btn-submit').removeClass('loading');
+                UserUploadService.setSuccessStatus(true);
+                $state.go('user.images');
             }).catch(function(error) {
                 $('.upload-error').fadeIn().removeClass('hide').delay(2000).fadeOut();
                 UserUploadService.setSuccessStatus(false);
