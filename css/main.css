@@ -164,10 +164,30 @@ body {
     margin-bottom: 0px; }
 
 .user-profile-template h6 {
-  margin-top: 8px; }
+  margin-top: 8px;
+  display: inline-block; }
 
 .user-profile-template .profile {
   display: none; }
+
+.user-profile-template .edit-icon {
+  margin-left: 6px;
+  cursor: pointer; }
+
+.user-profile-template input {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 10px; }
+
+.user-profile-template .action-row {
+  margin-bottom: 12px; }
+  .user-profile-template .action-row .delete-actions {
+    display: inline-block;
+    margin-left: 10px; }
+    .user-profile-template .action-row .delete-actions button {
+      width: 66px; }
+      .user-profile-template .action-row .delete-actions button i {
+        margin-right: 6px; }
 
 .footer {
   background-color: #f8f9fa;

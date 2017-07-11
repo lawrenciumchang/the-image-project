@@ -8,9 +8,12 @@
                         <div class="col-3">
                             <label class="form-label" for="name">Name</label>
                         </div>
-                        <div class="col-9">
-                            <h6>{{vm.user.displayName}}</h6>
-                            <input ng-if="vm.editMode" class="form-input" type="text" id="name" ng-model="vm.user.displayName"/>
+                        <div class="col-9" ng-mouseover="vm.showNameEdit = true" ng-mouseleave="vm.showNameEdit = false">
+                            <h6 ng-if="!vm.showNameInput">{{vm.userCopy.displayName}}</h6>
+                            <input ng-if="vm.showNameInput" class="form-input" type="text" id="name" ng-model="vm.userCopy.displayName"/>
+                            <span class="edit-icon tooltip tooltip-right" data-tooltip="Edit Display Name" ng-if="vm.showNameEdit && !vm.showNameInput" ng-click="vm.showNameInput = true"><i class="icon icon-edit"></i></span>
+                            <span class="edit-icon tooltip tooltip-right" data-tooltip="Save" ng-if="vm.showNameInput" ng-click="vm.saveDisplayName(vm.userCopy); vm.showNameInput = false;"><i class="icon icon-check"></i></span>
+                            <span class="edit-icon tooltip tooltip-right" data-tooltip="Cancel" ng-if="vm.showNameInput" ng-click="vm.showNameInput = false;"><i class="icon icon-cross"></i></span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -18,11 +21,22 @@
                             <label class="form-label" for="email">Email</label>
                         </div>
                         <div class="col-9">
-                            <h6>{{vm.user.email}}</h6>
-                            <input ng-if="vm.editMode" class="form-input" type="text" id="email" ng-model="vm.user.email"/>
+                            <h6>{{vm.userCopy.email}}</h6>
+                            <input ng-if="vm.editMode" class="form-input" type="text" id="email" ng-model="vm.userCopy.email"/>
                         </div>
                     </div>
                 </form>
+            </div>
+            <div class="action-row">
+                <button class="btn btn-link" ng-click="vm.sendResetPasswordEmail()">Send Reset Password Email</button>
+            </div>
+            <div class="action-row">
+                <button class="btn btn-link" ng-if="!vm.showDeletePrompt" ng-click="vm.showDeletePrompt = true">Delete Account</button>
+                <span ng-if="vm.showDeletePrompt">Are you sure you want to delete your account? All photos will be removed from The Image Project.</span>
+                <div class="delete-actions" ng-if="vm.showDeletePrompt">
+                    <button class="btn btn-link" ng-click="vm.deleteAccount()"><span><i class="icon icon-check"></i>Yes</span></button>
+                    <button class="btn btn-primary" ng-click="vm.showDeletePrompt = false"><span><i class="icon icon-cross"></i>No</span></button>
+                </div>
             </div>
         </div>
     </div>

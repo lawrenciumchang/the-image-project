@@ -1,8 +1,31 @@
 .user-profile-template {
     h6 {
         margin-top: 8px;
+        display: inline-block;
     }
     .profile {
         display: none;
+    }
+    .edit-icon {
+        margin-left: 6px;
+        cursor: pointer;
+    }
+    input {
+        display: inline-block;
+        width: 50%;
+        margin-bottom: 10px;
+    }
+    .action-row {
+        margin-bottom: 12px;
+        .delete-actions {
+            display: inline-block;
+            margin-left: 10px;
+            button {
+                width: 66px;
+                i {
+                    margin-right: 6px;
+                }
+            }
+        }
     }
 }

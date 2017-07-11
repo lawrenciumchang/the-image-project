@@ -6,7 +6,11 @@ app
 /* @ngInject */
 function UserProfileController($q, $firebaseAuth) {
     var vm = this;
+    vm.saveDisplayName = saveDisplayName;
+    vm.sendResetPasswordEmail = sendResetPasswordEmail;
+    vm.deleteAccount = deleteAccount;
 
+    vm.userCopy = {};
     vm.editMode = false;
 
     var auth = $firebaseAuth();
@@ -23,8 +27,32 @@ function UserProfileController($q, $firebaseAuth) {
         });
     }
 
+    function saveDisplayName(userCopy) {
+        var user = firebase.auth().currentUser;
+        user.updateProfile({
+            displayName: userCopy.displayName
+        }).then(function() {
+            // TO-DO: Display toast message here
+
+        }).catch(function(error) {
+            // TO-DO: Display toast message here
+
+        });
+    }
+
+    function sendResetPasswordEmail() {
+        // TO-DO: Send email and display toast message
+
+    }
+
+    function deleteAccount() {
+        // TO-DO: Delete account and remove photos from db. Display confirmation toast message.
+
+    };
+
     auth.$onAuthStateChanged(function(user) {
         vm.user = user;
+        angular.copy(user, vm.userCopy);
     });
 
 }
