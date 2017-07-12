@@ -43,9 +43,8 @@ function UserProfileController($q, $firebaseAuth) {
         });
     }
 
-    function sendPasswordResetEmail() {
-        var email = firebase.auth().currentUser.email;
-        auth.$sendPasswordResetEmail(email).then(function() {
+    function sendPasswordResetEmail(user) {
+        auth.$sendPasswordResetEmail(user.email).then(function() {
             $('.password-success').fadeIn().removeClass('hide').delay(2000).fadeOut();
         }).catch(function(error) {
             $('.password-error').fadeIn().removeClass('hide').delay(2000).fadeOut();
@@ -54,7 +53,7 @@ function UserProfileController($q, $firebaseAuth) {
 
     function deleteAccount() {
         // TO-DO: Delete account and remove photos from db. Display confirmation toast message.
-
+        
     };
 
     auth.$onAuthStateChanged(function(user) {

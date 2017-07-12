@@ -42,11 +42,11 @@
                 </form>
             </div>
             <div class="action-row">
-                <button class="btn btn-link" ng-click="vm.sendPasswordResetEmail()">Send  Password Reset Email</button>
+                <button class="btn btn-link" ng-click="vm.sendPasswordResetEmail(vm.user)">Send  Password Reset Email</button>
             </div>
             <div class="action-row">
                 <button class="btn btn-link" ng-if="!vm.showDeletePrompt" ng-click="vm.showDeletePrompt = true">Delete Account</button>
-                <span ng-if="vm.showDeletePrompt">Are you sure you want to delete your account? All photos will be removed from The Image Project.</span>
+                <p class="delete-prompt" ng-if="vm.showDeletePrompt">Are you sure you want to delete your account? All photos will be removed from The Image Project.</p>
                 <div class="delete-actions" ng-if="vm.showDeletePrompt">
                     <button class="btn btn-link" ng-click="vm.deleteAccount()"><span><i class="icon icon-check"></i>Yes</span></button>
                     <button class="btn btn-primary" ng-click="vm.showDeletePrompt = false"><span><i class="icon icon-cross"></i>No</span></button>

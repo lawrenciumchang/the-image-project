@@ -180,10 +180,13 @@ body {
   margin-bottom: 10px; }
 
 .user-profile-template .action-row {
+  padding: 0 10px;
   margin-bottom: 12px; }
+  .user-profile-template .action-row .delete-prompt {
+    margin: 0 0px 10px 10px;
+    display: inline-block; }
   .user-profile-template .action-row .delete-actions {
-    display: inline-block;
-    margin-left: 10px; }
+    display: inline-block; }
     .user-profile-template .action-row .delete-actions button {
       width: 66px; }
       .user-profile-template .action-row .delete-actions button i {

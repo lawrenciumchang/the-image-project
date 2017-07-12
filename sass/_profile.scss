@@ -16,10 +16,14 @@
         margin-bottom: 10px;
     }
     .action-row {
+        padding: 0 10px;
         margin-bottom: 12px;
+        .delete-prompt {
+            margin: 0 0px 10px 10px;
+            display: inline-block;
+        }
         .delete-actions {
             display: inline-block;
-            margin-left: 10px;
             button {
                 width: 66px;
                 i {
