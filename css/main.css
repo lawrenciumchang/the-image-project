@@ -191,6 +191,28 @@ body {
       width: 66px; }
       .user-profile-template .action-row .delete-actions button i {
         margin-right: 6px; }
+  .user-profile-template .action-row .btn-deleting {
+    pointer-events: none; }
+
+@keyframes blink {
+  0% {
+    opacity: .2; }
+  20% {
+    opacity: 1; }
+  100% {
+    opacity: .2; } }
+
+.user-profile-template .deleting span {
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both; }
+
+.user-profile-template .deleting span:nth-child(2) {
+  animation-delay: .2s; }
+
+.user-profile-template .deleting span:nth-child(3) {
+  animation-delay: .4s; }
 
 .footer {
   background-color: #f8f9fa;

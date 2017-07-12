@@ -4,7 +4,7 @@ app
     .controller('UserProfileController', UserProfileController);
 
 /* @ngInject */
-function UserProfileController($q, $firebaseAuth) {
+function UserProfileController($q, $timeout, $firebaseAuth, $firebaseArray, $firebaseStorage) {
     var vm = this;
     vm.rollbackView = rollbackView;
     vm.saveDisplayName = saveDisplayName;
@@ -13,6 +13,7 @@ function UserProfileController($q, $firebaseAuth) {
 
     vm.userCopy = {};
     vm.editMode = false;
+    vm.deleting = false;
 
     var auth = $firebaseAuth();
 
@@ -51,9 +52,43 @@ function UserProfileController($q, $firebaseAuth) {
         });
     }
 
+    function wipeDbForUser(uid) {
+        var databaseRef = firebase.database().ref('/images');
+        var storageRef = firebase.storage().ref('/images');
+        vm.images = $firebaseArray(databaseRef);
+        vm.images.$loaded().then(function(){
+            angular.forEach(vm.images, function(value, key) {
+                if(value.uid == uid) {
+                    var beforeImage = value.before;
+                    var afterImage = value.after;
+                    vm.images.$remove(key).then(function() {
+                        var beforeImageRef = storageRef.child(beforeImage);
+                        var afterImageRef = storageRef.child(afterImage);
+                        var beforeStorage = $firebaseStorage(beforeImageRef);
+                        var afterStorage = $firebaseStorage(afterImageRef);
+                        beforeStorage.$delete().then(function() {
+                            afterStorage.$delete().then(function() {
+                            });
+                        });
+                    });
+                }
+            });
+        });
+    }
+
     function deleteAccount() {
-        // TO-DO: Delete account and remove photos from db. Display confirmation toast message.
-        
+        vm.deleting = true;
+        var promises = [wipeDbForUser(vm.user.uid)];
+        return $q.all(promises).then(function() {
+            $timeout(function() {
+                auth.$deleteUser().then(function() {
+
+                }).catch(function(error) {
+                    vm.deleting = false;
+                    $('.delete-error').fadeIn().removeClass('hide').delay(2000).fadeOut();
+                });
+            }, 1000);
+        });
     };
 
     auth.$onAuthStateChanged(function(user) {
