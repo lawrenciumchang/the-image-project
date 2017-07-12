@@ -6,6 +6,7 @@ app
 /* @ngInject */
 function UserProfileController($q, $firebaseAuth) {
     var vm = this;
+    vm.rollbackView = rollbackView;
     vm.saveDisplayName = saveDisplayName;
     vm.sendPasswordResetEmail = sendPasswordResetEmail;
     vm.deleteAccount = deleteAccount;
@@ -27,16 +28,18 @@ function UserProfileController($q, $firebaseAuth) {
         });
     }
 
+    function rollbackView() {
+        angular.copy(firebase.auth().currentUser, vm.userCopy);
+    }
+
     function saveDisplayName(userCopy) {
         var user = firebase.auth().currentUser;
         user.updateProfile({
             displayName: userCopy.displayName
         }).then(function() {
-            // TO-DO: Display toast message here
-
+            $('.name-success').fadeIn().removeClass('hide').delay(2000).fadeOut();
         }).catch(function(error) {
-            // TO-DO: Display toast message here
-
+            $('.name-error').fadeIn().removeClass('hide').delay(2000).fadeOut();
         });
     }
 

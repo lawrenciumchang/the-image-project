@@ -1,8 +1,14 @@
 <div class="user-profile-template">
     <div class="container grid-960">
         <div class="toast-messages text-center">
+            <div class="toast toast-success name-success hide">
+                <span><i class="icon icon-check"></i> Name Updated</span>
+            </div>
             <div class="toast toast-success password-success hide">
                 <span><i class="icon icon-check"></i> Email Sent</span>
+            </div>
+            <div class="toast toast-error name-error hide">
+                <span>Error updating display name</span>
             </div>
             <div class="toast toast-error password-error hide">
                 <span>Error sending email</span>
@@ -21,7 +27,7 @@
                             <input ng-if="vm.showNameInput" class="form-input" type="text" id="name" ng-model="vm.userCopy.displayName"/>
                             <span class="edit-icon tooltip tooltip-right" data-tooltip="Edit Display Name" ng-if="vm.showNameEdit && !vm.showNameInput" ng-click="vm.showNameInput = true"><i class="icon icon-edit"></i></span>
                             <span class="edit-icon tooltip tooltip-right" data-tooltip="Save" ng-if="vm.showNameInput" ng-click="vm.saveDisplayName(vm.userCopy); vm.showNameInput = false;"><i class="icon icon-check"></i></span>
-                            <span class="edit-icon tooltip tooltip-right" data-tooltip="Cancel" ng-if="vm.showNameInput" ng-click="vm.showNameInput = false;"><i class="icon icon-cross"></i></span>
+                            <span class="edit-icon tooltip tooltip-right" data-tooltip="Cancel" ng-if="vm.showNameInput" ng-click="vm.rollbackView(); vm.showNameInput = false;"><i class="icon icon-cross"></i></span>
                         </div>
                     </div>
                     <div class="form-group">
