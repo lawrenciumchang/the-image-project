@@ -7,7 +7,7 @@ app
 function UserProfileController($q, $firebaseAuth) {
     var vm = this;
     vm.saveDisplayName = saveDisplayName;
-    vm.sendResetPasswordEmail = sendResetPasswordEmail;
+    vm.sendPasswordResetEmail = sendPasswordResetEmail;
     vm.deleteAccount = deleteAccount;
 
     vm.userCopy = {};
@@ -40,9 +40,13 @@ function UserProfileController($q, $firebaseAuth) {
         });
     }
 
-    function sendResetPasswordEmail() {
-        // TO-DO: Send email and display toast message
-
+    function sendPasswordResetEmail() {
+        var email = firebase.auth().currentUser.email;
+        auth.$sendPasswordResetEmail(email).then(function() {
+            $('.password-success').fadeIn().removeClass('hide').delay(2000).fadeOut();
+        }).catch(function(error) {
+            $('.password-error').fadeIn().removeClass('hide').delay(2000).fadeOut();
+        });
     }
 
     function deleteAccount() {
