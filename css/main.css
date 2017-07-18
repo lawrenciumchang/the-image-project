@@ -32,6 +32,11 @@ body {
       z-index: 1000; }
       body .toast-messages .toast.login-success {
         width: 300px; }
+      body .toast-messages .toast.password-success {
+        width: 400px; }
+        @media (max-width: 425px) {
+          body .toast-messages .toast.password-success {
+            width: 280px; } }
 
 .font-light {
   font-weight: 300; }

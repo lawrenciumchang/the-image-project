@@ -7,12 +7,15 @@ app
 function MenuController($q, $state, $firebaseAuth) {
     var vm = this;
     vm.toggleForm = toggleForm;
+    vm.togglePasswordForm = togglePasswordForm;
     vm.signUp = signUp;
     vm.logIn = logIn;
     vm.logOut = logOut;
+    vm.sendPasswordResetEmail = sendPasswordResetEmail;
 
     vm.user = {};
     vm.signUpView = true;
+    vm.passwordResetView = false;
     vm.invalidSignupEmail = false;
     vm.weakPassword = false;
     vm.invalidLoginEmail = false;
@@ -31,6 +34,11 @@ function MenuController($q, $state, $firebaseAuth) {
 
     function toggleForm() {
         vm.signUpView = !vm.signUpView;
+        document.getElementById('dropdown').focus();
+    }
+
+    function togglePasswordForm() {
+        vm.passwordResetView = !vm.passwordResetView;
         document.getElementById('dropdown').focus();
     }
 
@@ -112,6 +120,17 @@ function MenuController($q, $state, $firebaseAuth) {
             .catch(function(error) {
                 $('.general-error').fadeIn().removeClass('hide').delay(2000).fadeOut();
             });
+    }
+
+    function sendPasswordResetEmail(passwordResetForm) {
+        if(passwordResetForm.email) {
+            auth.$sendPasswordResetEmail(passwordResetForm.email).then(function() {
+                vm.passwordResetView = false;
+                $('.password-success').fadeIn().removeClass('hide').delay(2000).fadeOut();
+            }).catch(function(error) {
+                $('.general-error').fadeIn().removeClass('hide').delay(2000).fadeOut();
+            });
+        }
     }
 
     auth.$onAuthStateChanged(function(user) {

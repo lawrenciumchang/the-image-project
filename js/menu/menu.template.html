@@ -10,6 +10,9 @@
             <div class="toast toast-primary logout-success hide">
                 <span>You are signed out</span>
             </div>
+            <div class="toast toast-success password-success hide">
+                <span>An email has been sent to reset your password</span>
+            </div>
             <div class="toast toast-error general-error hide">
                 <span>An error has occured :(</span>
             </div>
@@ -30,7 +33,8 @@
                             <div class="panel-header">
                                 <div class="panel-title text-center">
                                     <span ng-if="vm.signUpView">Create an Account</span>
-                                    <span ng-if="!vm.signUpView">Log In</span>
+                                    <span ng-if="!vm.signUpView && !vm.passwordResetView">Log In</span>
+                                    <span ng-if="!vm.signUpView && vm.passwordResetView">Reset Password</span>
                                 </div>
                             </div>
                             <div class="panel-body">
@@ -51,7 +55,7 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-signup"><span>Sign Up</span></button>
                                 </form>
-                                <form name="logInForm" ng-submit="vm.logIn(logInForm)" ng-if="!vm.signUpView">
+                                <form name="logInForm" ng-submit="vm.logIn(logInForm)" ng-if="!vm.signUpView && !vm.passwordResetView">
                                     <div class="form-group">
                                         <label class="form-label" for="login-email">Email</label>
                                         <input class="form-input" type="text" id="login-email" placeholder=" " ng-model="logInForm.email" required/>
@@ -64,9 +68,20 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-login"><span>Log In</span></button>
                                 </form>
+                                <form name="passwordResetForm" ng-submit="vm.sendPasswordResetEmail(passwordResetForm)" ng-if="!vm.signUpView && vm.passwordResetView">
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input class="form-input" type="text" id="email" placeholder=" " ng-model="passwordResetForm.email" required/>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary"><span>Send Password Reset Email</span></button>
+                                </form>
                             </div>
                             <div class="panel-footer text-center">
                                 <p ng-if="vm.signUpView">Already have an account? <a ng-click="vm.toggleForm()">Log In</a>.</p>
+                                <p ng-if="!vm.signUpView"><a ng-click="vm.togglePasswordForm()">
+                                    <span ng-if="!vm.passwordResetView">Forgot your password?</span>
+                                    <span ng-if="vm.passwordResetView">Back to Log In</span>
+                                </a></p>
                                 <p ng-if="!vm.signUpView">Don't have an account? <a ng-click="vm.toggleForm()">Sign Up</a>.</p>
                             </div>
                         </div>
