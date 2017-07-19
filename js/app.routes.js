@@ -2,7 +2,11 @@
 
 app
     .config(Routes)
-    .run(function($rootScope, $state, $firebaseAuth, $anchorScroll) {
+    .run(function($rootScope, $state, $window, $location, $firebaseAuth, $anchorScroll) {
+        $window.ga('create', 'UA-XXXXXXXX-X', 'auto');
+        $rootScope.$on('$stateChangeSuccess', function (event) {
+            $window.ga('send', 'pageview', $location.path());
+        });
         $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
             var auth = $firebaseAuth();
             auth.$onAuthStateChanged(function(user) {
