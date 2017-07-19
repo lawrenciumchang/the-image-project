@@ -34,6 +34,7 @@ function MenuController($q, $state, $firebaseAuth) {
 
     function toggleForm() {
         vm.signUpView = !vm.signUpView;
+        vm.passwordResetView = false;
         document.getElementById('dropdown').focus();
     }
 
