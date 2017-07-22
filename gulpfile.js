@@ -26,10 +26,9 @@ gulp.task('sass', function () {
 });
 
 gulp.task('index', function () {
-    var target = gulp.src('./index.html');
-    var sources = gulp.src(['./js/**/*.js'], {read: false});
-    return target.pipe(inject(sources))
-        .pipe(gulp.dest('./'));
+    gulp.src('./index.html')
+      .pipe(inject(gulp.src('./js/**/*.js', {read: false}), {relative: true}))
+      .pipe(gulp.dest('./'));
 });
 
 gulp.task('webserver', function() {
