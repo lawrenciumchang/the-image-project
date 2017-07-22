@@ -3,6 +3,40 @@ body {
   font-family: 'Comfortaa', sans-serif;
   margin: 0px;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+  body .view {
+    margin-top: 100px;
+    min-height: 100vh; }
+  body p {
+    margin-bottom: 0px; }
+  body a {
+    cursor: pointer; }
+    body a:hover {
+      text-decoration: none; }
+  body .section-title {
+    display: none; }
+    body .section-title .icon {
+      margin-top: -5px;
+      margin-right: 3px; }
+    @media (max-width: 478px) {
+      body .section-title {
+        padding-top: 8px; } }
+  body .btn span {
+    line-height: 2.2rem; }
+  body .toast-messages {
+    display: flex;
+    justify-content: flex-end; }
+    body .toast-messages .toast {
+      width: 200px;
+      position: fixed;
+      top: 80px;
+      z-index: 1000; }
+      body .toast-messages .toast.login-success {
+        width: 300px; }
+      body .toast-messages .toast.password-success {
+        width: 400px; }
+        @media (max-width: 425px) {
+          body .toast-messages .toast.password-success {
+            width: 280px; } }
 
 .font-light {
   font-weight: 300; }
@@ -12,6 +46,191 @@ body {
 
 .font-bold {
   font-weight: 700; }
+
+.menu-template {
+  background-color: #f8f9fa;
+  padding: 16px 8px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 200; }
+  .menu-template .menu-bar .title {
+    margin-bottom: 0px;
+    cursor: pointer; }
+  .menu-template .menu-bar .btn-upload {
+    margin-right: 16px; }
+  .menu-template .menu-bar .panel {
+    width: 360px;
+    display: inline-block; }
+    .menu-template .menu-bar .panel .panel-header {
+      padding-bottom: 5px; }
+    .menu-template .menu-bar .panel .btn {
+      width: 100%;
+      margin-top: 10px; }
+  .menu-template .menu-bar .menu-icon {
+    margin-right: 10px; }
+
+.home-template .container {
+  display: none; }
+
+.home-template .card {
+  margin-bottom: 40px; }
+  .home-template .card .card-header .card-title {
+    margin-bottom: 6px; }
+  .home-template .card .card-header .card-subtitle {
+    margin-bottom: 0px; }
+
+.home-template .comparison-slider {
+  margin: 0 auto;
+  width: 80%; }
+
+.home-template .comparison-slider .comparison-after img, .home-template .comparison-slider .comparison-before img {
+  z-index: 0; }
+
+.home-template .comparison-slider .comparison-after::after {
+  z-index: 1; }
+
+.home-template .empty {
+  margin-top: 25%; }
+  .home-template .empty .empty-icon {
+    font-size: 4rem; }
+
+.user-images-template .section-title {
+  padding-bottom: 10px; }
+
+.user-images-template .empty {
+  display: none;
+  margin-top: 24px; }
+  .user-images-template .empty .empty-icon {
+    font-size: 4rem; }
+
+.user-images-template .card {
+  display: none;
+  margin-bottom: 40px; }
+  .user-images-template .card .card-image .column {
+    padding-top: 0px;
+    padding-bottom: 0px; }
+    .user-images-template .card .card-image .column img {
+      width: 100%; }
+  @media (min-width: 601px) {
+    .user-images-template .card .card-image .col-left {
+      padding-right: 5px; }
+    .user-images-template .card .card-image .col-right {
+      padding-left: 5px; } }
+  .user-images-template .card .card-header .card-title {
+    margin-bottom: 4px; }
+  .user-images-template .card .card-header .card-subtitle {
+    margin-bottom: 0px; }
+  .user-images-template .card .card-header .btn {
+    margin-top: -8px; }
+    .user-images-template .card .card-header .btn.btn-edit {
+      margin-right: 8px; }
+  .user-images-template .card .card-header .title-label {
+    padding-top: 0px; }
+  .user-images-template .card .card-body .action-row {
+    margin-top: 16px; }
+    .user-images-template .card .card-body .action-row .btn-update {
+      margin-right: 4px; }
+  .user-images-template .card .delete-container {
+    height: 120px;
+    display: table;
+    width: 100%; }
+    .user-images-template .card .delete-container .content {
+      display: table-cell;
+      vertical-align: middle; }
+      .user-images-template .card .delete-container .content .action-row {
+        margin-top: 4px; }
+
+.user-upload-template h6 {
+  margin-bottom: 10px; }
+
+.user-upload-template .upload-form {
+  display: none; }
+  .user-upload-template .upload-form .drop-box {
+    background: #f8f9fa;
+    border: 4px dashed #ddd;
+    width: 100%;
+    height: 320px;
+    text-align: center;
+    display: table;
+    cursor: pointer; }
+    .user-upload-template .upload-form .drop-box .label {
+      display: table-cell;
+      vertical-align: middle; }
+    .user-upload-template .upload-form .drop-box .image-preview {
+      display: table-cell; }
+      .user-upload-template .upload-form .drop-box .image-preview img {
+        height: 270px;
+        padding-top: 20px;
+        padding-bottom: 6px; }
+  .user-upload-template .upload-form .dragover {
+    border: 4px dashed #5867c3; }
+  .user-upload-template .upload-form .form-group {
+    margin-bottom: 0px; }
+
+.user-profile-template h6 {
+  margin-top: 8px;
+  display: inline-block; }
+
+.user-profile-template .profile {
+  display: none; }
+
+.user-profile-template .edit-icon {
+  margin-left: 6px;
+  cursor: pointer; }
+
+.user-profile-template input {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 10px; }
+
+.user-profile-template .action-row {
+  padding: 0 10px;
+  margin-bottom: 12px; }
+  .user-profile-template .action-row .delete-prompt {
+    margin: 0 0px 10px 10px;
+    display: inline-block; }
+  .user-profile-template .action-row .delete-actions {
+    display: inline-block; }
+    .user-profile-template .action-row .delete-actions button {
+      width: 66px; }
+      .user-profile-template .action-row .delete-actions button i {
+        margin-right: 6px; }
+  .user-profile-template .action-row .btn-deleting {
+    pointer-events: none; }
+
+@keyframes blink {
+  0% {
+    opacity: .2; }
+  20% {
+    opacity: 1; }
+  100% {
+    opacity: .2; } }
+
+.user-profile-template .deleting span {
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both; }
+
+.user-profile-template .deleting span:nth-child(2) {
+  animation-delay: .2s; }
+
+.user-profile-template .deleting span:nth-child(3) {
+  animation-delay: .4s; }
+
+.footer {
+  background-color: #f8f9fa;
+  width: 100%;
+  height: 116px;
+  padding: 1rem; }
+  .footer .grid-footer {
+    margin-top: 1rem; }
+    @media (max-width: 600px) {
+      .footer .grid-footer {
+        text-align: center; } }
+  .footer p, .footer a {
+    font-size: 11px; }
 
 .not-found-template {
   text-align: center; }

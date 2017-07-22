@@ -1,0 +1,70 @@
+.user-images-template {
+    .section-title {
+        padding-bottom: 10px;
+    }
+    .empty {
+        display: none;
+        margin-top: 24px;
+        .empty-icon {
+            font-size: 4rem;
+        }
+    }
+    .card {
+        display: none;
+        margin-bottom: 40px;
+        .card-image {
+            .column {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                img {
+                    width: 100%;
+                }
+            }
+            @media (min-width: 601px) {
+                .col-left {
+                    padding-right: 5px;
+                }
+                .col-right {
+                    padding-left: 5px;
+                }
+            }
+        }
+        .card-header {
+            .card-title {
+                margin-bottom: 4px;
+            }
+            .card-subtitle {
+                margin-bottom: 0px;
+            }
+            .btn {
+                margin-top: -8px;
+                &.btn-edit {
+                    margin-right: 8px;
+                }
+            }
+            .title-label {
+                padding-top: 0px;
+            }
+        }
+        .card-body {
+            .action-row {
+                margin-top: 16px;
+                .btn-update {
+                    margin-right: 4px;
+                }
+            }   
+        }
+        .delete-container {
+            height: 120px;
+            display: table;
+            width: 100%;
+            .content {
+                display: table-cell;
+                vertical-align: middle;
+                .action-row {
+                    margin-top: 4px;
+                }
+            }
+        }
+    }
+}

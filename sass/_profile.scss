@@ -1,0 +1,62 @@
+.user-profile-template {
+    h6 {
+        margin-top: 8px;
+        display: inline-block;
+    }
+    .profile {
+        display: none;
+    }
+    .edit-icon {
+        margin-left: 6px;
+        cursor: pointer;
+    }
+    input {
+        display: inline-block;
+        width: 50%;
+        margin-bottom: 10px;
+    }
+    .action-row {
+        padding: 0 10px;
+        margin-bottom: 12px;
+        .delete-prompt {
+            margin: 0 0px 10px 10px;
+            display: inline-block;
+        }
+        .delete-actions {
+            display: inline-block;
+            button {
+                width: 66px;
+                i {
+                    margin-right: 6px;
+                }
+            }
+        }
+        .btn-deleting {
+            pointer-events: none;
+        }
+    }
+
+    @keyframes blink {
+        0% {
+          opacity: .2;
+        }
+        20% {
+          opacity: 1;
+        }
+        100% {
+          opacity: .2;
+        }
+    }
+    .deleting span {
+        animation-name: blink;
+        animation-duration: 1.4s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: both;
+    }
+    .deleting span:nth-child(2) {
+        animation-delay: .2s;
+    }
+    .deleting span:nth-child(3) {
+        animation-delay: .4s;
+    }
+}

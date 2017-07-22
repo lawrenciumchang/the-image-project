@@ -1,5 +1,52 @@
 body {
     font-family: 'Comfortaa', sans-serif; 
     margin: 0px;
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    .view {
+        margin-top: 100px;
+        min-height: 100vh;
+    } 
+    p {
+        margin-bottom: 0px;
+    }
+    a {
+        cursor: pointer;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .section-title {
+        display: none;
+        .icon {
+            margin-top: -5px;
+            margin-right: 3px;
+        }
+        @media (max-width: 478px) {
+            padding-top: 8px;
+        }
+    }
+    .btn {
+        span {
+            line-height: 2.2rem;
+        }
+    }
+    .toast-messages {
+        display: flex;
+        justify-content: flex-end;
+        .toast {
+            width: 200px;
+            position: fixed;
+            top: 80px;
+            z-index: 1000;
+            &.login-success {
+                width: 300px;
+            }
+            &.password-success {
+                @media (max-width: 425px) {
+                    width: 280px;
+                }
+                width: 400px;
+            }
+        }
+    }
 }

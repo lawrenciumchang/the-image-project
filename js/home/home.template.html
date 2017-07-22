@@ -1,0 +1,29 @@
+<div class="home-template">
+    <div class="container grid-960">
+        <div class="card" ng-if="vm.images && vm.showImages" ng-repeat="image in vm.images | orderBy : 'uploadTime' : vm.reverseSort">
+            <div class="card-image">
+                <div twentytwenty class="twentytwenty-container">
+                    <img firebase-src="{{'images/'+image.before}}"/>
+                    <img firebase-src="{{'images/'+image.after}}"/>
+                </div>
+            </div>
+            <div class="card-header">
+                <h4 class="card-title">{{image.title}}</h4>
+                <h6 class="card-subtitle">Uploaded by {{image.username}} <span am-time-ago="image.uploadTime"></span></h6>
+            </div>
+            <div class="card-body">
+                <p>{{image.description}}</p>
+            </div>
+        </div>
+        <div class="empty" ng-if="!vm.images">
+            <div class="empty-icon">
+                <i class="icon icon-photo"></i>
+            </div>
+            <h4 class="empty-title">There are no photos :(</h4>
+            <p class="empty-subtitle">Be the first to upload!</p>
+            <div class="empty-action">
+                <button class="btn btn-primary" ui-sref="user.upload"><span><i class="icon icon-upload"></i> Upload Image</span></button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+<div ng-controller="MenuController as vm" class="menu-template">
+    <div class="menu-bar container grid-960">
+        <div class="toast-messages text-center">
+            <div class="toast toast-primary signup-success hide">
+                <span>Welcome, {{vm.user.displayName}}!</span>
+            </div>
+            <div class="toast toast-primary login-success hide">
+                <span>Welcome back, {{vm.user.displayName}}!</span>
+            </div>
+            <div class="toast toast-primary logout-success hide">
+                <span>You are signed out</span>
+            </div>
+            <div class="toast toast-success password-success hide">
+                <span>An email has been sent to reset your password</span>
+            </div>
+            <div class="toast toast-error general-error hide">
+                <span>An error has occured :(</span>
+            </div>
+        </div>
+        <nav class="navbar">
+            <section class="navbar-section">
+                <h4 class="title" ui-sref="home">The Image Project</h4>
+            </section>
+            <section class="navbar-section">
+                <button ng-if="vm.user" ui-sref="user.upload" class="btn btn-primary btn-upload hide-sm"><span><i class="icon icon-upload"></i> UPLOAD</span></button>
+                <div class="dropdown dropdown-right">
+                    <a id="dropdown" class="btn btn-link dropdown-toggle" tabindex="0">
+                        <span ng-if="vm.user">{{vm.user.displayName}}</span>
+                        <span ng-if="!vm.user">Get Started</span> <i class="icon icon-caret"></i>
+                    </a>
+                    <ul class="menu" ng-if="!vm.user">
+                        <div class="panel">
+                            <div class="panel-header">
+                                <div class="panel-title text-center">
+                                    <span ng-if="vm.signUpView">Create an Account</span>
+                                    <span ng-if="!vm.signUpView && !vm.passwordResetView">Log In</span>
+                                    <span ng-if="!vm.signUpView && vm.passwordResetView">Reset Password</span>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <form name="signUpForm" ng-submit="vm.signUp(signUpForm)" ng-if="vm.signUpView">
+                                    <div class="form-group">
+                                        <label class="form-label" for="signup-name">First Name</label>
+                                        <input class="form-input" type="text" id="signup-name" placeholder=" " ng-model="signUpForm.name" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="signup-email">Email</label>
+                                        <input class="form-input" type="text" id="signup-email" placeholder=" " ng-model="signUpForm.email" required/>
+                                        <p class="form-input-hint" ng-if="vm.invalidSignupEmail">Please enter a valid email.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="signup-password">Password</label>
+                                        <input class="form-input" type="password" id="signup-password" placeholder=" " ng-model="signUpForm.password" required/>
+                                        <p class="form-input-hint" ng-if="vm.weakPassword">Password should be at least 6 characters.</p>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-signup"><span>Sign Up</span></button>
+                                </form>
+                                <form name="logInForm" ng-submit="vm.logIn(logInForm)" ng-if="!vm.signUpView && !vm.passwordResetView">
+                                    <div class="form-group">
+                                        <label class="form-label" for="login-email">Email</label>
+                                        <input class="form-input" type="text" id="login-email" placeholder=" " ng-model="logInForm.email" required/>
+                                        <p class="form-input-hint" ng-if="vm.invalidLoginEmail">Please enter a valid email.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="login-password">Password</label>
+                                        <input class="form-input" type="password" id="login-password" placeholder=" " ng-model="logInForm.password" required/>
+                                        <p class="form-input-hint" ng-if="vm.invalidCombination">Email or password is incorrect.</p>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-login"><span>Log In</span></button>
+                                </form>
+                                <form name="passwordResetForm" ng-submit="vm.sendPasswordResetEmail(passwordResetForm)" ng-if="!vm.signUpView && vm.passwordResetView">
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input class="form-input" type="text" id="email" placeholder=" " ng-model="passwordResetForm.email" required/>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary"><span>Send Password Reset Email</span></button>
+                                </form>
+                            </div>
+                            <div class="panel-footer text-center">
+                                <p ng-if="vm.signUpView">Already have an account? <a ng-click="vm.toggleForm()">Log In</a>.</p>
+                                <p ng-if="!vm.signUpView"><a ng-click="vm.togglePasswordForm()">
+                                    <span ng-if="!vm.passwordResetView">Forgot your password?</span>
+                                    <span ng-if="vm.passwordResetView">Back to Log In</span>
+                                </a></p>
+                                <p ng-if="!vm.signUpView">Don't have an account? <a ng-click="vm.toggleForm()">Sign Up</a>.</p>
+                            </div>
+                        </div>
+                    </ul>
+                    <ul class="menu" ng-if="vm.user">
+                        <li class="menu-item">
+                            <a ui-sref="user.images"><i class="icon icon-photo menu-icon"></i>My Images</a>
+                        </li>
+                        <li class="menu-item show-sm">
+                            <a ui-sref="user.upload"><i class="icon icon-upload menu-icon"></i>Upload</a>
+                        </li>
+                        <li class="menu-item">
+                            <a ui-sref="user.profile"><i class="icon icon-people menu-icon"></i>Profile</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="menu-item">
+                            <a ng-click="vm.logOut()"><i class="icon icon-shutdown menu-icon"></i>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </nav>
+    </div>
+</div>

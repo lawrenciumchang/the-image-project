@@ -1,0 +1,61 @@
+<div class="user-profile-template">
+    <div class="container grid-960">
+        <div class="toast-messages text-center">
+            <div class="toast toast-success name-success hide">
+                <span><i class="icon icon-check"></i> Name Updated</span>
+            </div>
+            <div class="toast toast-success password-success hide">
+                <span><i class="icon icon-check"></i> Email Sent</span>
+            </div>
+            <div class="toast toast-error name-error hide">
+                <span>Error updating display name</span>
+            </div>
+            <div class="toast toast-error password-error hide">
+                <span>Error sending email</span>
+            </div>
+            <div class="toast toast-error delete-error hide">
+                <span>Error deleting account</span>
+            </div>
+        </div>
+        <h5 class="section-title"><i class="icon icon-people"></i> Profile</h5>
+        <div class="profile columns">
+            <div class="column col-sm-12 col-9">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-3">
+                            <label class="form-label" for="name">Name</label>
+                        </div>
+                        <div class="col-9" ng-mouseover="vm.showNameEdit = true" ng-mouseleave="vm.showNameEdit = false">
+                            <h6 ng-if="!vm.showNameInput">{{vm.userCopy.displayName}}</h6>
+                            <input ng-if="vm.showNameInput" class="form-input" type="text" id="name" ng-model="vm.userCopy.displayName"/>
+                            <span class="edit-icon tooltip tooltip-right" data-tooltip="Edit Display Name" ng-if="vm.showNameEdit && !vm.showNameInput" ng-click="vm.showNameInput = true"><i class="icon icon-edit"></i></span>
+                            <span class="edit-icon tooltip tooltip-right" data-tooltip="Save" ng-if="vm.showNameInput" ng-click="vm.saveDisplayName(vm.userCopy); vm.showNameInput = false;"><i class="icon icon-check"></i></span>
+                            <span class="edit-icon tooltip tooltip-right" data-tooltip="Cancel" ng-if="vm.showNameInput" ng-click="vm.rollbackView(); vm.showNameInput = false;"><i class="icon icon-cross"></i></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-3">
+                            <label class="form-label" for="email">Email</label>
+                        </div>
+                        <div class="col-9">
+                            <h6>{{vm.userCopy.email}}</h6>
+                            <input ng-if="vm.editMode" class="form-input" type="text" id="email" ng-model="vm.userCopy.email"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="action-row">
+                <button class="btn btn-link" ng-click="vm.sendPasswordResetEmail(vm.user)">Send  Password Reset Email</button>
+            </div>
+            <div class="action-row">
+                <button class="btn btn-link" ng-if="!vm.showDeletePrompt && !vm.deleting" ng-click="vm.showDeletePrompt = true">Delete Account</button>
+                <p class="delete-prompt" ng-if="vm.showDeletePrompt">Are you sure you want to delete your account? All photos will be removed from The Image Project.</p>
+                <div class="delete-actions" ng-if="vm.showDeletePrompt">
+                    <button class="btn btn-link" ng-click="vm.showDeletePrompt = false; vm.deleteAccount();"><span><i class="icon icon-check"></i>Yes</span></button>
+                    <button class="btn btn-primary" ng-click="vm.showDeletePrompt = false"><span><i class="icon icon-cross"></i>No</span></button>
+                </div>
+                <button class="btn btn-link btn-deleting" ng-if="!vm.showDeletePrompt && vm.deleting"><p class="deleting">Deleting account <span>. </span><span>. </span><span>. </span></p></button>
+            </div>
+        </div>
+    </div>
+</div>

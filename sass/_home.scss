@@ -1,0 +1,32 @@
+.home-template {
+    .container {
+        display: none;
+    }
+    .card {
+        margin-bottom: 40px;
+        .card-header {
+            .card-title {
+                margin-bottom: 6px;
+            }
+            .card-subtitle {
+                margin-bottom: 0px;
+            }
+        }
+    }
+    .comparison-slider {
+        margin: 0 auto;
+        width: 80%;
+    }
+    .comparison-slider .comparison-after img, .comparison-slider .comparison-before img {
+        z-index: 0;
+    }
+    .comparison-slider .comparison-after::after {
+        z-index: 1;
+    }
+    .empty {
+        margin-top: 25%;
+        .empty-icon {
+            font-size: 4rem;
+        }
+    }
+}
