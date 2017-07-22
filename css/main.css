@@ -23,13 +23,18 @@ body {
   body .btn span {
     line-height: 2.2rem; }
   body .toast-messages {
+    position: fixed;
     display: flex;
-    justify-content: flex-end; }
+    justify-content: flex-end;
+    top: 80px;
+    z-index: 1000; }
+    @media (max-width: 425px) {
+      body .toast-messages {
+        top: 100px;
+        right: -10px; } }
     body .toast-messages .toast {
       width: 200px;
-      position: fixed;
-      top: 80px;
-      z-index: 1000; }
+      margin-right: 10px; }
       body .toast-messages .toast.login-success {
         width: 300px; }
       body .toast-messages .toast.password-success {

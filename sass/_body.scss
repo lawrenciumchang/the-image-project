@@ -31,13 +31,18 @@ body {
         }
     }
     .toast-messages {
+        position: fixed;
         display: flex;
         justify-content: flex-end;
+        top: 80px;
+        z-index: 1000;
+        @media (max-width: 425px) {
+            top: 100px;
+            right: -10px;
+        }
         .toast {
             width: 200px;
-            position: fixed;
-            top: 80px;
-            z-index: 1000;
+            margin-right: 10px;
             &.login-success {
                 width: 300px;
             }
