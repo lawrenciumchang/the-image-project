@@ -59,7 +59,7 @@
                         <textarea class="form-input" type="text" id="description" rows="4" ng-model="image.description"></textarea>
                         <div class="action-row text-right">
                             <button class="btn btn-primary btn-update" type="submit" ng-disabled="editForm.$invalid"><span>Update Post</span></button>
-                            <button class="btn btn-cancel" ng-click="editForm.$rollbackViewValue(); vm.toggleEditMode(image)"><span>Cancel</span></button>
+                            <button class="btn btn-link" ng-click="editForm.$rollbackViewValue(); vm.toggleEditMode(image)"><span>Cancel</span></button>
                         </div>
                     </div>
                 </form>
