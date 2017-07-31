@@ -46,9 +46,9 @@ function UserProfileController($q, $timeout, $firebaseAuth, $firebaseArray, $fir
 
     function sendPasswordResetEmail(user) {
         auth.$sendPasswordResetEmail(user.email).then(function() {
-            $('.password-success').fadeIn().removeClass('hide').delay(2000).fadeOut();
+            $('.send-password-success').fadeIn().removeClass('hide').delay(2000).fadeOut();
         }).catch(function(error) {
-            $('.password-error').fadeIn().removeClass('hide').delay(2000).fadeOut();
+            $('.send-password-error').fadeIn().removeClass('hide').delay(2000).fadeOut();
         });
     }
 
