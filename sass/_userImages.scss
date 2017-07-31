@@ -81,6 +81,11 @@
                 vertical-align: middle;
                 .action-row {
                     margin-top: 4px;
+                    button {
+                        i {
+                            margin-right: 6px;
+                        }
+                    }
                 }
             }
         }

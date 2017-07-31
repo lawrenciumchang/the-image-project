@@ -160,6 +160,8 @@ body {
       vertical-align: middle; }
       .user-images-template .card .delete-container .content .action-row {
         margin-top: 4px; }
+        .user-images-template .card .delete-container .content .action-row button i {
+          margin-right: 6px; }
 
 .user-upload-template h6 {
   margin-bottom: 10px; }
