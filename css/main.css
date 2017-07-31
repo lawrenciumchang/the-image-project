@@ -117,6 +117,19 @@ body {
     padding-bottom: 0px; }
     .user-images-template .card .card-image .column img {
       width: 100%; }
+    .user-images-template .card .card-image .column .banner {
+      margin-top: -38px;
+      height: 32px;
+      background: #2a2a2a;
+      opacity: .5; }
+    .user-images-template .card .card-image .column .banner-label {
+      color: #ffffff;
+      z-index: 1000;
+      margin-top: -23px;
+      display: block;
+      opacity: 1;
+      position: relative;
+      font-size: smaller; }
   @media (min-width: 601px) {
     .user-images-template .card .card-image .col-left {
       padding-right: 5px; }
@@ -136,6 +149,8 @@ body {
     margin-top: 16px; }
     .user-images-template .card .card-body .action-row .btn-update {
       margin-right: 4px; }
+  .user-images-template .card .description-container, .user-images-template .card .edit-container {
+    margin-top: 14px; }
   .user-images-template .card .delete-container {
     height: 120px;
     display: table;

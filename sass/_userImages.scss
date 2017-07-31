@@ -19,6 +19,21 @@
                 img {
                     width: 100%;
                 }
+                .banner {
+                    margin-top: -38px;
+                    height: 32px;
+                    background: #2a2a2a;
+                    opacity: .5;
+                }
+                .banner-label {
+                    color: $white;
+                    z-index: 1000;
+                    margin-top: -23px;
+                    display: block;
+                    opacity: 1;
+                    position: relative;
+                    font-size: smaller;
+                }
             }
             @media (min-width: 601px) {
                 .col-left {
@@ -53,6 +68,9 @@
                     margin-right: 4px;
                 }
             }   
+        }
+        .description-container, .edit-container {
+            margin-top: 14px;
         }
         .delete-container {
             height: 120px;
